@@ -1,5 +1,7 @@
 import { collection, getDocs } from "firebase/firestore/lite";
 
+
+ 
 export async function getCollection(db, path) {
   const myCollection = collection(db, path);
   const snapshot = await getDocs(myCollection);
