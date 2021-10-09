@@ -4,6 +4,7 @@ import { getFirestore } from "firebase/firestore/lite";
 //Project files
 import CategoryPage from "./components/CategoryPage";
 import ProductPage from "./components/ProductPage";
+import Form from "./components/Form";
 import firebaseInstance from "./scripts/firebase";
 import { getCollection } from "./scripts/fireStore";
 import './css/categoryPage.css';
@@ -32,10 +33,10 @@ export default function App() {
     setStatus(1);
   }, [database]);
 
-  useEffect(() => {
-    getCategories();
-    getProducts()
-  }, [getCategories, getProducts]);
+  // useEffect(() => {
+  //   getCategories();
+  //   getProducts()
+  // }, [getCategories, getProducts]);
 
   const category = categories.map((category) => (
     <CategoryPage key={category.id} category={category} />
@@ -52,6 +53,7 @@ export default function App() {
       {status === 1 && <ul>{category}</ul>}
       {status === 1 && <ul>{productList}</ul>}
       {status === 2 && <p>Error</p>}
+      <Form/>
     </div>
   );
 }
