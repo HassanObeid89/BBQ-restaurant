@@ -6,7 +6,7 @@ import { getFirestore } from "firebase/firestore/lite";
 
 export default function Form() {
   const database = getFirestore(firebaseInstance);
-  const [values, handleChange] = useForm();
+  const [values, handleChange,setvalues] = useForm();
   const [ingradient, setIngradient] = useState("");
   const [list, setList] = useState([]);
 
@@ -20,10 +20,10 @@ export default function Form() {
   function handleSubmit(e) {
     e.preventDefault();
     const newProduct = {
-      values: values,
-      ingradient: list,
+      ...values,ingradients:list
     };
     createDoc(database, "test", newProduct);
+    setvalues({})
   }
 
   return (
@@ -51,11 +51,21 @@ export default function Form() {
         />
       </label>
       <label>
+        Image:
+        <input
+          type="text"
+          placeholder="https://image-url.com"
+          value={values.imageUrl || ""}
+          name="imageUrl"
+          onChange={handleChange}
+        />
+      </label>
+      <label>
         Description:
         <input
           type="text"
           placeholder="the ...."
-          value={values.description || ""}
+          value={values.description||""}
           name="description"
           onChange={handleChange}
         />
@@ -67,7 +77,7 @@ export default function Form() {
           placeholder="Chilli"
           value={ingradient}
           name="ingradients"
-          onChange={(e) => setIngradient(e.target.value)}
+          onChange={(e)=>setIngradient(e.target.value)}
         />
         <button onClick={(event) => onSubmit(event)}>Add</button>
       </label>
