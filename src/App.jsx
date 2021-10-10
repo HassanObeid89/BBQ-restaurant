@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore/lite";
 //Project files
 import CategoryPage from "./components/CategoryPage";
 import ProductPage from "./components/ProductPage";
-import Form from "./components/Form";
+import Form from "./components/FormCreateProduct";
 import firebaseInstance from "./scripts/firebase";
 import { getCollection } from "./scripts/fireStore";
 import './css/categoryPage.css';

@@ -3,27 +3,22 @@ import useForm from "../utils/useForm";
 import { createDoc } from "../scripts/fireStore";
 import firebaseInstance from "../scripts/firebase";
 import { getFirestore } from "firebase/firestore/lite";
+import FormCreateIngredient from "./FormCreateIngredient";
 
-export default function Form() {
+export default function FormCreateProduct() {
   const database = getFirestore(firebaseInstance);
-  const [values, handleChange,setvalues] = useForm();
+  const [values, handleChange, setvalues] = useForm();
   const [ingradient, setIngradient] = useState("");
   const [list, setList] = useState([]);
 
-  function onSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-    const ingradients = ingradient;
-    setList([...list, ingradients]);
-    setIngradient("");
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
     const newProduct = {
-      ...values,ingradients:list
+      ...values,
+      ingradients: list,
     };
     createDoc(database, "test", newProduct);
-    setvalues({})
+    setvalues({});
   }
 
   return (
@@ -65,23 +60,12 @@ export default function Form() {
         <input
           type="text"
           placeholder="the ...."
-          value={values.description||""}
+          value={values.description || ""}
           name="description"
           onChange={handleChange}
         />
       </label>
-      <label>
-        Ingradients:
-        <input
-          type="text"
-          placeholder="Chilli"
-          value={ingradient}
-          name="ingradients"
-          onChange={(e)=>setIngradient(e.target.value)}
-        />
-        <button onClick={(event) => onSubmit(event)}>Add</button>
-      </label>
-      {list}
+      <FormCreateIngredient data={[ingradient, setIngradient, list, setList]} />
       <button onClick={handleSubmit}>Submit</button>
     </form>
   );
