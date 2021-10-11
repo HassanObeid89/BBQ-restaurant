@@ -9,13 +9,14 @@ import firebaseInstance from "./scripts/firebase";
 import { getCollection } from "./scripts/fireStore";
 import './css/categoryPage.css';
 import './css/dropdown.css';
+import ModalContainer from "./components/ModalContainer";
 
 export default function App() {
   //Local state
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([])
   const [status, setStatus] = useState(0);
-
+  const [modal, setModal] = useState(null);
   //properties
   const database = getFirestore(firebaseInstance);
 
@@ -53,7 +54,8 @@ export default function App() {
       {/* {status === 1 && <ul>{category}</ul>}
       {status === 1 && <ul>{productList}</ul>} */}
       {status === 2 && <p>Error</p>}
-      {status === 1 &&  <FormCreateProduct categories={categories} />}
+      {status === 1 &&  <FormCreateProduct categories={categories} setModal={setModal} />}
+      <ModalContainer modal={modal} setModal={setModal} />
     </div>
   );
 }

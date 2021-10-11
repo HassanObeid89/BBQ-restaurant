@@ -13,7 +13,7 @@
     "type": "number",
     "name":"price"
   },
-  "image": {
+  "imageUrl": {
     "label": "Image",
     "instructions": "Please copy the image Url of the product from any website",
     "placeholder": "https//www.example/image.png",
@@ -33,5 +33,12 @@
     "placeholder": "Chilli",
     "type": "text",
     "name":"ingradients"
+  },
+  "Name":{
+    "label": "Category name",
+    "instructions": "",
+    "placeholder": "Meat",
+    "type": "text",
+    "name":"Name"
   }
 }

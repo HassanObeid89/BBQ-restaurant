@@ -1,11 +1,11 @@
 import { useState } from "react";
 import caretdownIcon from "../assets/images/caretdownIcon.svg";
-export default function Dropdown({ isSelected, setIsSelected, categories }) {
+export default function Dropdown({ state, categories }) {
   const [isActive, setIsActive] = useState(false);
-    console.log(categories)
+  const [isSelected, setIsSelected] = state;
   const options = categories.map((category) => (
     <div
-    key={category.id}
+      key={category.id}
       className="dropdown-item"
       onClick={() => {
         setIsSelected(category.Name);
