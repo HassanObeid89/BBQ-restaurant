@@ -4,10 +4,11 @@ import { getFirestore } from "firebase/firestore/lite";
 //Project files
 import CategoryPage from "./components/CategoryPage";
 import ProductPage from "./components/ProductPage";
-import Form from "./components/FormCreateProduct";
+import FormCreateProduct from "./components/FormCreateProduct";
 import firebaseInstance from "./scripts/firebase";
 import { getCollection } from "./scripts/fireStore";
 import './css/categoryPage.css';
+import './css/dropdown.css';
 
 export default function App() {
   //Local state
@@ -29,31 +30,30 @@ export default function App() {
   const getProducts = useCallback(async () => {
     const collection = await getCollection(database, "products");
     setProducts(collection);
-    console.log(collection);
     setStatus(1);
   }, [database]);
 
-  // useEffect(() => {
-  //   getCategories();
-  //   getProducts()
-  // }, [getCategories, getProducts]);
+  useEffect(() => {
+    getCategories();
+    getProducts()
+  }, [getCategories, getProducts]);
 
-  const category = categories.map((category) => (
-    <CategoryPage key={category.id} category={category} />
-  ));
+  // const category = categories.map((category) => (
+  //   <CategoryPage key={category.id} category={category} />
+  // ));
 
-  const productList = products.map((product) => (
-    <ProductPage key={product.id} product={product} />
-  ));
+  // const productList = products.map((product) => (
+  //   <ProductPage key={product.id} product={product} />
+  // ));
 
   return (
     <div className="App">
       <p>BBQ restuarant</p>
       {status === 0 && <p>Loading...</p>}
-      {status === 1 && <ul>{category}</ul>}
-      {status === 1 && <ul>{productList}</ul>}
+      {/* {status === 1 && <ul>{category}</ul>}
+      {status === 1 && <ul>{productList}</ul>} */}
       {status === 2 && <p>Error</p>}
-      <Form/>
+      {status === 1 &&  <FormCreateProduct categories={categories} />}
     </div>
   );
 }

@@ -4,7 +4,7 @@
     "instructions": "",
     "placeholder": "Grilled meat",
     "type": "text",
-    "name":"ala"
+    "name":"productname"
   },
   "price": {
     "label": "Product price",

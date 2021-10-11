@@ -9,7 +9,7 @@ export default function InputField({ data, options }) {
         <input
           type={type}
           name={name}
-          value={values.name }
+          value={values.name}
           placeholder={placeholder}
           onChange={handleChange}
         />
