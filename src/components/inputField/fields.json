@@ -1,10 +1,10 @@
 {
-  "name": {
+  "productname": {
     "label": "Product name",
     "instructions": "",
     "placeholder": "Grilled meat",
     "type": "text",
-    "name":"name"
+    "name":"ala"
   },
   "price": {
     "label": "Product price",

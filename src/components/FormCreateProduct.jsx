@@ -6,32 +6,33 @@ import { getFirestore } from "firebase/firestore/lite";
 import FormCreateIngredient from "./FormCreateIngredient";
 import InputField from "./inputField/InputField";
 import fields from "./inputField/fields.json";
+
 export default function FormCreateProduct() {
   const database = getFirestore(firebaseInstance);
-  const [values, handleChange, setvalues] = useForm();
+  const [values, handleChange, setState] = useForm();
   const [ingradient, setIngradient] = useState("");
   const [list, setList] = useState([]);
 
   function handleSubmit(event) {
-    event.preventDefault();
+    // event.preventDefault();
     const newProduct = {
       ...values,
       ingradients: list,
     };
     createDoc(database, "test", newProduct);
-    setvalues({});
     setList([]);
+    setState({});
   }
 
   return (
     <form>
       <h2>Add New Product</h2>
-      <InputField data={[handleChange, values]} options={fields.name} />
+      <InputField data={[handleChange, values]} options={fields.productname} />
       <InputField data={[handleChange, values]} options={fields.price} />
       <InputField data={[handleChange, values]} options={fields.image} />
       <InputField data={[handleChange, values]} options={fields.description} />
       <FormCreateIngredient data={[ingradient, setIngradient, list, setList]} />
-      <button onClick={handleSubmit}>Submit</button>
+      <button onClick={(event) => handleSubmit(event)}>Submit</button>
     </form>
   );
 }

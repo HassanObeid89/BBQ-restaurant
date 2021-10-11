@@ -1,20 +1,19 @@
 export default function InputField({ data, options }) {
   const [handleChange, values] = data;
-  const {label,instructions,placeholder,type,name} = options
-
+  const { label, instructions, placeholder,name, type } = options;
   return (
-    <fieldset>
+    <section>
       <label>
-        {instructions&&<small>{instructions}</small>}
-      <b>{label}</b>
-      <input
-        type={type}
-        name={name}
-        value={values.name || ""}
-        placeholder={placeholder}
-        onChange={handleChange}
-      />
+        {instructions && <small>{instructions}</small>}
+        <b>{label}</b>
+        <input
+          type={type}
+          name={name}
+          value={values.name }
+          placeholder={placeholder}
+          onChange={handleChange}
+        />
       </label>
-    </fieldset>
+    </section>
   );
 }
