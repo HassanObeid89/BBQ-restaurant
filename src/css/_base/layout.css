@@ -1,0 +1,10 @@
+.App {
+  font-family: var(--font-family);
+  text-align: center;
+  margin: var(--space-big);
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #E6E0E0;;
+}

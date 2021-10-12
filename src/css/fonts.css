@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Yrsa';
+  src: url('https://fonts.googleapis.com/css2?family=Yrsa:wght@700&display=swap');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Yrsa';
+  src: url('https://fonts.googleapis.com/css2?family=Yrsa:wght@400;700&display=swap');
+  font-weight: normal;
+}
