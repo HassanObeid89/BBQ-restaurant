@@ -1,7 +1,7 @@
 .App {
   font-family: var(--font-family);
   text-align: center;
-  margin: var(--space-big);
+  /* margin: var(--space-big); */
 }
 body {
   margin: 0;

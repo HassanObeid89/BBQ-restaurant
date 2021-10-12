@@ -2,8 +2,9 @@
 import { useState } from "react";
 
 //Project files
-import MenuPage from "./components/MenuPage";
-import ProductPage from "./components/ProductPage";
+import NavBar from './components/NavBar'
+import MenuPage from "./pages/MenuPage";
+import ProductPage from "./pages/ProductPage";
 import FormCreateProduct from "./components/FormCreateProduct";
 
 import ModalContainer from "./components/ModalContainer";
@@ -22,6 +23,7 @@ export default function App() {
 
   return (
     <div className="App">
+      <NavBar/>
       {status === 0 && <p>Loading...</p>}
       {status === 1 && <ul>{menuList}</ul>}
       {status === 2 && <p>Error</p>}

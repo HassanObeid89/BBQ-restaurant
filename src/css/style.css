@@ -3,5 +3,6 @@
 @import './_base/typography.css';
 @import './_base/variables.css';
 @import './button.css';
+@import './navBar.css';
 @import './menuPage.css';
 @import './dropdown.css'
