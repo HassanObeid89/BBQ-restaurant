@@ -8,8 +8,12 @@ import InputField from "./inputField/InputField";
 import fields from "./inputField/fields.json";
 import Dropdown from "./Dropdown";
 import ModalAddCategory from "./ModalAddCategory";
+import { useProducts } from "../utils/ProductProvider";
+import { useHistory } from "react-router-dom";
 
-export default function FormCreateProduct({ categories,setModal }) {
+export default function FormCreateProduct({ setModal }) {
+  const {categories} = useProducts()
+  const location = useHistory();
   const database = getFirestore(firebaseInstance);
   const [values, handleChange, setState] = useForm();
   const [ingradient, setIngradient] = useState("");
@@ -27,9 +31,11 @@ export default function FormCreateProduct({ categories,setModal }) {
       ingradients: list,
       category: isSelected,
     };
-    createDoc(database, "test", newProduct);
+    createDoc(database, "products", newProduct);
     setList([]);
     setState({});
+    alert('Product added')
+    location.goBack();
   }
 
   return (

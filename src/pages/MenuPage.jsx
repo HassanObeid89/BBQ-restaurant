@@ -6,7 +6,7 @@ export default function MenuPage({category}) {
             <img src={imgURL} alt={description}/>
             <h1>{name}</h1>
             <p>{description}</p>
-            <Button/>
+            <Button text='View'/>
         </li>
     )
 }

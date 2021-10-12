@@ -1,9 +1,33 @@
-import { useProducts } from "../utils/ProductProvider"
-
+import { useProducts } from "../utils/ProductProvider";
+import Button from '../components/Button'
+import { Link } from "react-router-dom";
 export default function AdminPage() {
-    return (
-        <div>
-            <h1>Admin Page</h1>
-        </div>
-    )
+  const { products } = useProducts();
+  const Rows = products.map((item, index) => (
+    <tr key={index}>
+      <td>{item.productname}</td>
+      <td>{item.price}</td>
+      <td>{item.category}</td>
+      {/* <td><img src={item.imgURL}/></td> */}
+    </tr>
+  ));
+  return (
+    <div>
+      <h1>Admin Page</h1>
+      <h2>Products table</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>category</th>
+          </tr>
+        </thead>
+        <tbody>{Rows}</tbody>
+      </table>
+      <Link to='/addProductForm'>
+      <Button text='Add Product'/>
+      </Link>
+    </div>
+  );
 }

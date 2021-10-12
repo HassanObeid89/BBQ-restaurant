@@ -8,7 +8,7 @@ import MenuPage from "./pages/MenuPage";
 import ProductPage from "./pages/ProductPage";
 import AdminPage from "./pages/AdminPage";
 import HomePage from "./pages/HomePage";
-import ContactUs from './pages/ContactUs'
+import ContactUs from "./pages/ContactUs";
 import FormCreateProduct from "./components/FormCreateProduct";
 
 import ModalContainer from "./components/ModalContainer";
@@ -34,7 +34,11 @@ export default function App() {
           <ul>{menuList}</ul>
         </Route>
         <Route path="/admin" component={AdminPage} />
-        <Route path='/contact us' component={ContactUs}/>
+        <Route path="/addProductForm">
+          <FormCreateProduct setModal={setModal} />
+        </Route>
+
+        <Route path="/contact us" component={ContactUs} />
         <Route>
           <ModalContainer modal={modal} setModal={setModal} />
         </Route>
