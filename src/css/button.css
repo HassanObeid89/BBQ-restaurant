@@ -1,0 +1,23 @@
+.button-main {
+    box-sizing: border-box;
+    min-height: 44px;
+    background-color: var(--color-red);
+    padding: 0 40px;
+    color: white;
+    font-weight: bold;
+    font-size: var(--font-button-mobile);
+    line-height: 22px;
+    box-shadow: -2px 4px 4px rgba(114, 26, 26, 0.55);
+    text-shadow: -2px 4px 4px rgba(114, 26, 26, 0.55);
+    border-radius: 50px;
+    border-style: none;
+    margin: var(--space-medium);
+  }
+  
+  .button-main:hover {
+    background-color: var(--color-red-light);
+  }
+
+  .button-main::selection{
+    background-color: var(--color-red-light);
+  }

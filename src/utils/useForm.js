@@ -6,6 +6,10 @@ export default function useForm() {
   const handleChange = (e) => {
     e.persist();
     setstate((state) => ({ ...state, [e.target.name]: e.target.value}));
+    
   };
-  return [state, handleChange];
+  
+  return [state, handleChange,setstate];
+  
+  
 }
