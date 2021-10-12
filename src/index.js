@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import ProductProvider from './utils/ProductProvider'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+
+import ProductProvider from "./utils/ProductProvider";
 
 ReactDOM.render(
-    <ProductProvider>
+  <ProductProvider>
     <App />
-    </ProductProvider>,
-  document.getElementById('root')
+  </ProductProvider>,
+  document.getElementById("root")
 );
-

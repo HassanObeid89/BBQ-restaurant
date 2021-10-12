@@ -1,5 +1,5 @@
-export default function Button() {
+export default function Button({text}) {
     return (
-       <button className='button-main'>View</button>
+       <button className='button-main'>{text}</button>
     )
 }

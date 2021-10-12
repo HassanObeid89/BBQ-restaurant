@@ -1,0 +1,48 @@
+
+
+.contact-wrapper .profile {
+  width: 80%;
+  margin: auto;
+}
+.contact-wrapper .profile img {
+  object-fit: cover;
+  width: 100%;
+  height: 270px;
+  margin: 24px 0;
+}
+
+.contact {
+  margin: 16px 32px;
+}
+
+.contact h3 {
+  margin: 16px 0 16px 0;
+}
+.contact li {
+  margin: 8px;
+}
+
+.bookTable {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookTable input {
+  margin: 8px 0;
+  padding: 8px;
+}
+
+.contact img {
+  margin: 16px 0;
+  width: 100%;
+}
+@media screen and (min-width: 550px) {
+  .contact-wrapper .profile {
+    width: 20%;
+    margin: auto;
+  }
+  .contact {
+    width: 30%;
+    margin: 0 auto;
+  }
+}
