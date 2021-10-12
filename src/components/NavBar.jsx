@@ -10,13 +10,13 @@ export default function NavBar() {
           </Link>
         </li>
         <li>
-          <Link to="">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="">Menu</Link>
+          <Link to="/menu">Menu</Link>
         </li>
         <li>
-          <Link to="/ContactUs">Contact Us</Link>
+          <Link to="/contact us">Contact Us</Link>
         </li>
       </ul>
     </nav>
