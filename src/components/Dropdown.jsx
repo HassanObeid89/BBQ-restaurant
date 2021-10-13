@@ -8,11 +8,11 @@ export default function Dropdown({ state, categories }) {
       key={category.id}
       className="dropdown-item"
       onClick={() => {
-        setIsSelected(category.Name);
+        setIsSelected(category.name);
         setIsActive(false);
       }}
     >
-      {category.Name}
+      {category.name}
     </div>
   ));
   return (

@@ -1,31 +1,31 @@
 {
-  "productname": {
+  "name": {
     "label": "Product name",
     "instructions": "",
     "placeholder": "Grilled meat",
     "type": "text",
-    "name":"productname"
+    "fname":"name"
   },
   "price": {
     "label": "Product price",
     "instructions": "",
     "placeholder": "240",
     "type": "number",
-    "name":"price"
+    "fname":"price"
   },
   "imageUrl": {
-    "label": "Image",
+    "label": "Image Url",
     "instructions": "Please copy the image Url of the product from any website",
     "placeholder": "https//www.example/image.png",
     "type": "text",
-    "name":"imageUrl"
+    "fname":"imageUrl"
   },
   "description": {
     "label": "Description",
     "instructions": "",
     "placeholder": "The best ever grilled meat...",
     "type": "text",
-    "name":"description"
+    "fname":"description"
   },
   "ingradients": {
     "label": "Ingradients",
@@ -39,6 +39,6 @@
     "instructions": "",
     "placeholder": "Meat",
     "type": "text",
-    "name":"Name"
+    "name":"name"
   }
 }

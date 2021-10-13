@@ -15,25 +15,43 @@ import firebaseInstance from "../scripts/firebase";
 const ProductContext = createContext(null);
 
 export default function ProductProvider({ children }) {
-  const [categories, dispatch] = useReducer(productReducer, []);
+  const [data, dispatch] = useReducer(productReducer, []);
+  const[categories,setCategories]=useState([])
+  const[products,setProducts]=useState([])
   const [status, setStatus] = useState(0);
 
   const database = getFirestore(firebaseInstance);
+  const categoryDipatch ='SET_CATEGORIES'
+  const productDipatch ='SET_PRODUCTS'
   const getCategories = useCallback(async () => {
     try {
       const categories = await getCollection(database, "categories");
       dispatch({ type: "SET_CATEGORIES", payload: categories });
+      setCategories(categories)
       setStatus(1);
     } catch {
       setStatus(2);
     }
   }, [database]);
 
+  const getProducts = useCallback(async()=>{
+    try{
+      const products = await getCollection(database,'products')
+      dispatch({type:'SET_PRODUCTS',payload:products})
+      setProducts(products)
+      setStatus(1)
+    }catch{
+      setStatus(2)
+    }
+  },[database])
+
   useEffect(() => {
     getCategories();
+    getProducts();
   }, []);
+
   return (
-    <ProductContext.Provider value={{ categories, dispatch, status }}>
+    <ProductContext.Provider value={{ products,categories, dispatch, status }}>
       {children}
     </ProductContext.Provider>
   );
