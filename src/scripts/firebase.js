@@ -1,7 +1,9 @@
 // NPM Package
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore/lite";
 
-const firebaseConfig = {
+
+const firebaseConfiguration = {
   apiKey: "AIzaSyDuOJAD8m3_dE0EeZGEwPB-2l_P5qiVRW4",
   authDomain: "bbq-restaurant-7211b.firebaseapp.com",
   projectId: "bbq-restaurant-7211b",
@@ -10,6 +12,5 @@ const firebaseConfig = {
   appId: "1:427890830372:web:b6e919869c250b4534bcb1"
 };
 
-const firebaseInstance = initializeApp(firebaseConfig);
-
-export default firebaseInstance;
+const firebaseInstance = initializeApp(firebaseConfiguration);
+export const fireStoreInstance = getFirestore(firebaseInstance);
