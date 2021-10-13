@@ -39,10 +39,8 @@ export default function App() {
         </Route>
 
         <Route path="/contact us" component={ContactUs} />
-        <Route>
-          <ModalContainer modal={modal} setModal={setModal} />
-        </Route>
       </Switch>
+      <ModalContainer modal={modal} setModal={setModal} />
     </BrowserRouter>
   );
 
