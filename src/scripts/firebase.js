@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore/lite";
 
+
 const firebaseConfiguration = {
   apiKey: "AIzaSyDuOJAD8m3_dE0EeZGEwPB-2l_P5qiVRW4",
   authDomain: "bbq-restaurant-7211b.firebaseapp.com",

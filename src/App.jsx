@@ -16,7 +16,7 @@ import { useProduct } from "./state/ProductProvider";
 import "./css/style.css";
 
 export default function App() {
-  
+  const [modal, setModal] = useState(null)
 
   const Browser = (
     <BrowserRouter>
@@ -24,14 +24,13 @@ export default function App() {
       <Switch>
         <Route path="/" component={HomePage} exact />
         <Route path="/menu" component={MenuPage}/>
-        {/* <Route path="/admin" component={AdminPage} /> */}
-        {/* <Route path="/addProductForm">
+        <Route path="/admin" component={AdminPage} />
+        <Route path="/addProductForm">
           <FormCreateProduct setModal={setModal} />
-        </Route> */}
-
+        </Route>
         <Route path="/contact us" component={ContactUs} />
       </Switch>
-      {/* <ModalContainer modal={modal} setModal={setModal} /> */}
+      <ModalContainer modal={modal} setModal={setModal} />
     </BrowserRouter>
   );
 

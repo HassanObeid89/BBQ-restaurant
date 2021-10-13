@@ -1,26 +1,39 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import useForm from "../utils/useForm";
 import { createDoc } from "../scripts/fireStore";
-
-import { getFirestore } from "firebase/firestore/lite";
 import FormCreateIngredient from "./FormCreateIngredient";
-import InputField from "./inputField/InputField";
-import fields from "./inputField/fields.json";
+import { getCollection } from "../scripts/fireStore";
 import Dropdown from "./Dropdown";
 import ModalAddCategory from "./ModalAddCategory";
-import { useProduct } from "../state/ProductProvider";
+
 import { useHistory } from "react-router-dom";
 import { useCategory } from "../state/CategoryProvider";
 export default function FormCreateProduct({ setModal }) {
-  const { products } = useProduct();
-  const {categories}=useCategory()
+  const {categories, dispatch}=useCategory()
   const location = useHistory();
- 
-
   const [ingradient, setIngradient] = useState("");
   const [list, setList] = useState([]);
   const [isSelected, setIsSelected] = useState("Please choose category");
   const [values, handleChange, setState] = useForm();
+
+  const path = "categories";
+
+  // Methods
+  const fetchData = useCallback(
+    async (path) => {
+      try {
+        const categories = await getCollection(path);
+
+        dispatch({ type: "SET_CATEGORIES", payload: categories });
+      
+      } catch {
+        
+      }
+    },
+    [dispatch]
+  );
+
+  useEffect(() => fetchData(path), [fetchData]);
   function openModal(e) {
     e.preventDefault();
     setModal(<ModalAddCategory setModal={setModal} />);
@@ -36,7 +49,7 @@ export default function FormCreateProduct({ setModal }) {
     setList([]);
     setState({});
     alert('Product added')
-    location.goBack();
+    // location.goBack();
   };
 
   return (
