@@ -1,5 +1,5 @@
 import fields from "./inputField/fields.json";
-
+import plus from '../assets/images/plus.svg'
 export default function FormCreateIngredient({ data }) {
   const [ingradient, setIngradient, list, setList] = data;
   const { label, placeholder, type, name } = fields.ingradients;
@@ -12,7 +12,7 @@ export default function FormCreateIngredient({ data }) {
   }
   const ingradientList = list.map((ingradient)=><li>{ingradient}</li>)
   return (
-    <fieldset>
+    <section className='ingradient'>
       <label>
         <b>{label}</b>
         <input
@@ -22,9 +22,10 @@ export default function FormCreateIngredient({ data }) {
           placeholder={placeholder}
           onChange={(event) => setIngradient(event.target.value)}
         />
-        <button onClick={(event) => onSubmit(event)}>Add</button>
+        <button onClick={(event) => onSubmit(event)}>+</button>
+        
       </label>
-      {ingradientList}
-    </fieldset>
+      <ul>{ingradientList}</ul>
+    </section>
   );
 }

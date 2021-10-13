@@ -5,11 +5,12 @@ import FormCreateIngredient from "./FormCreateIngredient";
 import { getCollection } from "../scripts/fireStore";
 import Dropdown from "./Dropdown";
 import ModalAddCategory from "./ModalAddCategory";
+import Button from "./Button";
 
 import { useHistory } from "react-router-dom";
 import { useCategory } from "../state/CategoryProvider";
 export default function FormCreateProduct({ setModal }) {
-  const {categories, dispatch}=useCategory()
+  const { categories, dispatch } = useCategory();
   const location = useHistory();
   const [ingradient, setIngradient] = useState("");
   const [list, setList] = useState([]);
@@ -25,10 +26,7 @@ export default function FormCreateProduct({ setModal }) {
         const categories = await getCollection(path);
 
         dispatch({ type: "SET_CATEGORIES", payload: categories });
-      
-      } catch {
-        
-      }
+      } catch {}
     },
     [dispatch]
   );
@@ -48,55 +46,56 @@ export default function FormCreateProduct({ setModal }) {
     createDoc("products", newProduct);
     setList([]);
     setState({});
-    alert('Product added')
+    alert("Product added");
     // location.goBack();
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h2>Add New Product</h2>
-      <label>
-        <b>product name</b>
-        <input
-          value={values.name || ""}
-          type="text"
-          name="name"
-          placeholder="meat"
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        <b>product price</b>
-        <input
-          type="text"
-          name="price"
-          placeholder="230:-"
-          value={values.price || ""}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        <b>Description</b>
-        <input
-          type="text"
-          name="description"
-          placeholder="the....."
-          value={values.description || ""}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        <b>Image Url</b>
-        <input
-          type="text"
-          name="imgURL"
-          placeholder="www.ghfj.com"
-          value={values.imgURL || ""}
-          onChange={handleChange}
-        />
-      </label>
+      
+        <label>
+          <b>product name</b>
+          <input
+            value={values.name || ""}
+            type="text"
+            name="name"
+            placeholder="meat"
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          <b>product price</b>
+          <input
+            type="text"
+            name="price"
+            placeholder="230:-"
+            value={values.price || ""}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          <b>Description</b>
+          <input
+            type="text"
+            name="description"
+            placeholder="the....."
+            value={values.description || ""}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          <b>Image Url</b>
+          <input
+            type="text"
+            name="imgURL"
+            placeholder="www.ghfj.com"
+            value={values.imgURL || ""}
+            onChange={handleChange}
+          />
+        </label>
 
-      {/* <InputField
+        {/* <InputField
         handleChange={handleChange}
         values={values}
         // values={values.name || ""}
@@ -120,11 +119,13 @@ export default function FormCreateProduct({ setModal }) {
         // values={values.name || ""}
         options={fields.description}
       /> */}
-      <FormCreateIngredient data={[ingradient, setIngradient, list, setList]} />
-      <Dropdown categories={categories} state={[isSelected, setIsSelected]} />
-      <button onClick={openModal}>Add New Category</button>
-      <br />
-      <button type="submit">Submit</button>
+        <FormCreateIngredient
+          data={[ingradient, setIngradient, list, setList]}
+        />
+        <Dropdown categories={categories} state={[isSelected, setIsSelected]} />
+        <button onClick={openModal}>Add New Category</button>
+        <Button type="submit" text='Submit'/>
+      
     </form>
   );
 }
