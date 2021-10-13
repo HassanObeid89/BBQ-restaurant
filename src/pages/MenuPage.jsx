@@ -1,12 +1,32 @@
-import Button from '../components/Button'
-export default function MenuPage({category}) {
-    const {imgURL,name, description} = category
+import { useState, useCallback, useEffect } from 'react';
+import {useCategory} from '../state/CategoryProvider'
+import CategoryItem from '../components/CategoryItem';
+import { getCollection } from '../scripts/fireStore';
+export default function MenuPage() {
+      // Global state
+  const { categories, dispatch } = useCategory();
+
+  // Local state
+  const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
+  const path = "categories";
+
+  // Methods
+  const fetchData = useCallback(async (path) => {
+    try {
+      const categories = await getCollection(path);
+
+      dispatch({ type: "SET_CATEGORIES", payload: categories });
+      setStatus(1);
+    } catch {
+      setStatus(2);
+    }
+  }, [dispatch]);
+
+  useEffect(() => fetchData(path), [fetchData]);
+
+  const Categories = categories.map((item)=><CategoryItem key={item.id} item={item}/>)
+  console.log(Categories)
     return (
-        <li className='menu-page'>
-            <img src={imgURL} alt={description}/>
-            <h1>{name}</h1>
-            <p>{description}</p>
-            <Button text='View'/>
-        </li>
+        <div>{status===1 && <ul>{Categories}</ul>}</div>
     )
 }

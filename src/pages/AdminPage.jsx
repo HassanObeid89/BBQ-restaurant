@@ -1,8 +1,8 @@
-import { useProducts } from "../utils/ProductProvider";
+import { useProduct } from "../state/ProductProvider";
 import Button from '../components/Button'
 import { Link } from "react-router-dom";
 export default function AdminPage() {
-  const { products } = useProducts();
+  const { products } = useProduct();
   const Rows = products.map((item, index) => (
     <tr key={index}>
       <td>{item.productname}</td>

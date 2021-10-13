@@ -1,20 +1,21 @@
 import { useState } from "react";
 import useForm from "../utils/useForm";
 import { createDoc } from "../scripts/fireStore";
-import firebaseInstance from "../scripts/firebase";
+
 import { getFirestore } from "firebase/firestore/lite";
 import FormCreateIngredient from "./FormCreateIngredient";
 import InputField from "./inputField/InputField";
 import fields from "./inputField/fields.json";
 import Dropdown from "./Dropdown";
 import ModalAddCategory from "./ModalAddCategory";
-import { useProducts } from "../utils/ProductProvider";
+import { useProduct } from "../state/ProductProvider";
 import { useHistory } from "react-router-dom";
-
+import { useCategory } from "../state/CategoryProvider";
 export default function FormCreateProduct({ setModal }) {
-  const { categories } = useProducts();
+  const { products } = useProduct();
+  const {categories}=useCategory()
   const location = useHistory();
-  const database = getFirestore(firebaseInstance);
+ 
 
   const [ingradient, setIngradient] = useState("");
   const [list, setList] = useState([]);
@@ -31,7 +32,7 @@ export default function FormCreateProduct({ setModal }) {
       ingradients: list,
       category: isSelected,
     };
-    createDoc(database, "products", newProduct);
+    createDoc("products", newProduct);
     setList([]);
     setState({});
     alert('Product added')

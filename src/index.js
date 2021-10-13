@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { CategoryProvider } from "./utils/categoryProvider";
+import {CategoryProvider} from "./state/CategoryProvider";
 
-import ProductProvider from "./utils/ProductProvider";
+import {ProductProvider} from "./state/ProductProvider";
 
 ReactDOM.render(
   <ProductProvider>
