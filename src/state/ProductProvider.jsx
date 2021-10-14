@@ -9,12 +9,12 @@ const ProductContext = createContext(null);
 
 export function ProductProvider({ children }) {
   // Local state
-  const [products, dispatch] = useReducer(productReducer, []);
+  const [products, dispatchProducts] = useReducer(productReducer, []);
   
 
   return (
     <ProductContext.Provider
-      value={{ products, dispatch }}
+      value={{ products, dispatchProducts }}
     >
       {children}
     </ProductContext.Provider>

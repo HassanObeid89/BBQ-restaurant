@@ -2,7 +2,7 @@
 import { createContext, useContext, useReducer } from "react";
 
 // Proeject files
-import categoriesReducer from "./categoriesReducer";
+import categoryReducer from "./categoryReducer";
 
 
 // Properties
@@ -10,7 +10,7 @@ const CategoryContext = createContext(null);
 
 export function CategoryProvider({ children }) {
   // Local state
-  const [categories, dispatch] = useReducer(categoriesReducer, []);
+  const [categories, dispatch] = useReducer(categoryReducer, []);
   
 
   return (
