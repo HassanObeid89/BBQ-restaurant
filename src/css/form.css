@@ -1,4 +1,4 @@
-input {
+input, textarea {
   background: rgba(196, 196, 196, 0.4);
   border-radius: 20px;
   border-style: none;
@@ -54,4 +54,9 @@ form {
   align-items: center;
   width: 80%;
   margin: 0 auto;
+}
+
+.button-wrapper{
+  display: flex;
+  margin-top: 10px;
 }

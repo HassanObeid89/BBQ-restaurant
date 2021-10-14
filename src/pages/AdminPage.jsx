@@ -1,36 +1,12 @@
-import { useState, useCallback, useEffect } from "react";
-import { getCollection, getCollectiontest } from "../scripts/fireStore";
+import { useState } from "react";
+
 import { useProduct } from "../state/ProductProvider";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
-import FormCreateProduct from "../components/FormCreateProduct";
+
 export default function AdminPage() {
-  const { products, dispatch } = useProduct();
-  // Local state
-  const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
-  const path = "products";
-
-  // Methods
-  const fetchData = useCallback(
-    async (path) => {
-      try {
-        const products = await getCollection(path);
-
-        dispatch({ type: "SET_PRODUCTS", payload: products });
-        setStatus(1);
-      } catch {
-        setStatus(2);
-      }
-    },
-    [dispatch]
-  );
-
-
-
-  useEffect(() => {
-    fetchData(path)
-    // getCollectiontest()
-  }, [fetchData]);
+  const { products } = useProduct();
+  
   const Rows = products.map((item, index) => (
     <tr key={index}>
       <td>{item.name}</td>
@@ -57,7 +33,9 @@ export default function AdminPage() {
       <Link to="/addProductForm">
         <Button text="Add Product" />
       </Link>
-      <FormCreateProduct />
+      <Link to="/addCategoryForm">
+        <Button text="Add Category" />
+      </Link>
     </div>
   );
 }

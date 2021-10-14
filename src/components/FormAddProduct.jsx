@@ -1,16 +1,19 @@
 import { useState, useCallback, useEffect } from "react";
 import useForm from "../utils/useForm";
 import { createDoc } from "../scripts/fireStore";
-import FormCreateIngredient from "./FormCreateIngredient";
+import FormCreateIngredient from "./FormAddIngredient";
 import { getCollection } from "../scripts/fireStore";
 import Dropdown from "./Dropdown";
-import ModalAddCategory from "./ModalAddCategory";
+import ModalAddCategory from "./FormAddCategory";
 import Button from "./Button";
 
 import { useHistory } from "react-router-dom";
 import { useCategory } from "../state/CategoryProvider";
-export default function FormCreateProduct({ setModal }) {
+import { useProduct } from "../state/ProductProvider";
+
+export default function FormAddProduct() {
   const { categories, dispatch } = useCategory();
+  const {dispatchProducts} = useProduct()
   const location = useHistory();
   const [ingradient, setIngradient] = useState("");
   const [list, setList] = useState([]);
@@ -32,11 +35,8 @@ export default function FormCreateProduct({ setModal }) {
   );
 
   useEffect(() => fetchData(path), [fetchData]);
-  function openModal(e) {
-    e.preventDefault();
-    setModal(<ModalAddCategory setModal={setModal} />);
-  }
-  const handleSubmit = (event) => {
+
+  function handleSubmit(event){
     event.preventDefault();
     const newProduct = {
       ...values,
@@ -44,58 +44,60 @@ export default function FormCreateProduct({ setModal }) {
       category: isSelected,
     };
     createDoc("products", newProduct);
-    setList([]);
-    setState({});
-    alert("Product added");
-    // location.goBack();
+    // setList([]);
+    // setState({});
+    dispatchProducts({type:"ADD_PRODUCT", payload:newProduct})
+    // alert("Product added");
+    location.goBack();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+   
+    <form onSubmit={(event)=>handleSubmit(event)}>
       <h2>Add New Product</h2>
-      
-        <label>
-          <b>product name</b>
-          <input
-            value={values.name || ""}
-            type="text"
-            name="name"
-            placeholder="meat"
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          <b>product price</b>
-          <input
-            type="text"
-            name="price"
-            placeholder="230:-"
-            value={values.price || ""}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          <b>Description</b>
-          <input
-            type="text"
-            name="description"
-            placeholder="the....."
-            value={values.description || ""}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          <b>Image Url</b>
-          <input
-            type="text"
-            name="imgURL"
-            placeholder="www.ghfj.com"
-            value={values.imgURL || ""}
-            onChange={handleChange}
-          />
-        </label>
 
-        {/* <InputField
+      <label>
+        <b>product name</b>
+        <input
+          value={values.name || ""}
+          type="text"
+          name="name"
+          placeholder="meat"
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        <b>product price</b>
+        <input
+          type="text"
+          name="price"
+          placeholder="230:-"
+          value={values.price || ""}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        <b>Description</b>
+        <input
+          type="text"
+          name="description"
+          placeholder="the....."
+          value={values.description || ""}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        <b>Image Url</b>
+        <input
+          type="text"
+          name="imgURL"
+          placeholder="www.ghfj.com"
+          value={values.imgURL || ""}
+          onChange={handleChange}
+        />
+      </label>
+
+      {/* <InputField
         handleChange={handleChange}
         values={values}
         // values={values.name || ""}
@@ -119,13 +121,9 @@ export default function FormCreateProduct({ setModal }) {
         // values={values.name || ""}
         options={fields.description}
       /> */}
-        <FormCreateIngredient
-          data={[ingradient, setIngradient, list, setList]}
-        />
-        <Dropdown categories={categories} state={[isSelected, setIsSelected]} />
-        <button onClick={openModal}>Add New Category</button>
-        <Button type="submit" text='Submit'/>
-      
+      <FormCreateIngredient data={[ingradient, setIngradient, list, setList]} />
+      <Dropdown categories={categories} state={[isSelected, setIsSelected]} />
+      <Button text="Submit" />
     </form>
   );
 }

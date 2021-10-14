@@ -1,6 +1,6 @@
 import fields from "./inputField/fields.json";
-import plus from '../assets/images/plus.svg'
-export default function FormCreateIngredient({ data }) {
+
+export default function FormAddIngredient({ data }) {
   const [ingradient, setIngradient, list, setList] = data;
   const { label, placeholder, type, name } = fields.ingradients;
 
