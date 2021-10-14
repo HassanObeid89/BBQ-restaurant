@@ -1,0 +1,23 @@
+.admin-page {
+    margin-top: var(--space-big);
+}
+
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+}
+th{
+    color: #ffffff;
+}
+th,td{
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px;
+}
+th{
+    background-color: var(--color-red-light);
+}
+
