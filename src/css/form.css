@@ -6,6 +6,7 @@ input, textarea {
   margin-bottom: 20px;
   width: 100%;
   max-width: 460px;
+
 }
 form .ingradient {
   width: 100%;
@@ -13,6 +14,7 @@ form .ingradient {
 form .ingradient label {
   position: relative;
   max-width: 470px;
+
 }
 form .ingradient button {
   position: absolute;
@@ -42,21 +44,36 @@ label {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+  margin: 0 auto;
+  max-width: 470px;
 }
+label input{
+align-items: center;
+}
+
+
 
 label b {
   margin-left: 15px;
 }
-
+form h2{
+  margin-top: var(--space-big);
+}
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 80%;
+  max-width: 560px;
   margin: 0 auto;
 }
 
 .button-wrapper{
   display: flex;
   margin-top: 10px;
+}
+
+@media screen and (min-width: 960px){
+
+  
 }
