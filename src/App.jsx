@@ -14,15 +14,33 @@ import FormAddProduct from "./components/FormAddProduct";
 
 import ModalContainer from "./components/ModalContainer";
 import { useProduct } from "./state/ProductProvider";
+import { useCategory } from "./state/CategoryProvider";
 import "./css/style.css";
-import FormAddCategory from "./components/FormAddCategory";
+
 
 export default function App() {
   const [modal, setModal] = useState(null);
   const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
   const { dispatchProducts } = useProduct();
-
+  const {dispatch } = useCategory();
   const path = "products";
+  
+  const path2 = "categories";
+
+    // Methods
+    const fetchCategory = useCallback(
+      async (path) => {
+        try {
+          const categories = await getCollection(path);
+  
+          dispatch({ type: "SET_CATEGORIES", payload: categories });
+        } catch {
+          setStatus(2);
+        }
+      },
+      [dispatch]
+    );
+
   const fetchData = useCallback(
     async (path) => {
       try {
@@ -37,7 +55,8 @@ export default function App() {
     [dispatchProducts]
   );
 
-  useEffect(() => fetchData(path), []);
+  useEffect(() => {fetchData(path)
+    fetchCategory(path2)}, []);
 
   const Browser = (
     <BrowserRouter>
@@ -46,8 +65,8 @@ export default function App() {
         <Route path="/" component={HomePage} exact />
         <Route path="/menu" component={MenuPage} />
         <Route path="/admin" component={AdminPage} />
-        <Route path="/addProductForm" component={FormAddProduct} />
-        <Route path="/addCategoryForm" component={FormAddCategory} />
+        <Route path="/addProductForm"><FormAddProduct setModal={setModal}/></Route>
+        {/* <Route path="/addCategoryForm" component={FormAddCategory} /> */}
         <Route path="/contact us" component={ContactUs} />
       </Switch>
       <ModalContainer modal={modal} setModal={setModal} />

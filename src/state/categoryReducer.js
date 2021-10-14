@@ -1,4 +1,4 @@
-export default function productReducer(state, action) {
+export default function categoryReducer(state, action) {
     switch (action.type) {
       case "ADD_CATEGORY":
         return addCategory(state, action);

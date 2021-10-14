@@ -1,42 +1,46 @@
 import { useState, useCallback, useEffect } from "react";
+import { useCategory } from "../state/CategoryProvider";
+import { getCollection } from "../scripts/fireStore";
 import useForm from "../utils/useForm";
 import { createDoc } from "../scripts/fireStore";
 import FormCreateIngredient from "./FormAddIngredient";
-import { getCollection } from "../scripts/fireStore";
+
 import Dropdown from "./Dropdown";
-import ModalAddCategory from "./FormAddCategory";
+import ModalAddCategory from "./ModalAddCategory";
 import Button from "./Button";
 
-import { useHistory } from "react-router-dom";
-import { useCategory } from "../state/CategoryProvider";
+import { Link, useHistory } from "react-router-dom";
+
 import { useProduct } from "../state/ProductProvider";
 
-export default function FormAddProduct() {
-  const { categories, dispatch } = useCategory();
-  const {dispatchProducts} = useProduct()
+export default function FormAddProduct({setModal}) {
+  
+  const { dispatchProducts } = useProduct();
   const location = useHistory();
   const [ingradient, setIngradient] = useState("");
   const [list, setList] = useState([]);
   const [isSelected, setIsSelected] = useState("Please choose category");
   const [values, handleChange, setState] = useForm();
+  // const { categories, dispatch } = useCategory();
+  // const path = "categories";
 
-  const path = "categories";
+  //   // Methods
+  //   const fetchData = useCallback(
+  //     async (path) => {
+  //       try {
+  //         const categories = await getCollection(path);
+  
+  //         dispatch({ type: "SET_CATEGORIES", payload: categories });
+  //       } catch {
+  
+  //       }
+  //     },
+  //     [dispatch]
+  //   );
+  
+  //   useEffect(() => fetchData(path), [fetchData]);
 
-  // Methods
-  const fetchData = useCallback(
-    async (path) => {
-      try {
-        const categories = await getCollection(path);
-
-        dispatch({ type: "SET_CATEGORIES", payload: categories });
-      } catch {}
-    },
-    [dispatch]
-  );
-
-  useEffect(() => fetchData(path), [fetchData]);
-
-  function handleSubmit(event){
+  function handleSubmit(event) {
     event.preventDefault();
     const newProduct = {
       ...values,
@@ -44,16 +48,20 @@ export default function FormAddProduct() {
       category: isSelected,
     };
     createDoc("products", newProduct);
-    // setList([]);
-    // setState({});
-    dispatchProducts({type:"ADD_PRODUCT", payload:newProduct})
-    // alert("Product added");
+    setList([]);
+    setState({});
+    dispatchProducts({ type: "ADD_PRODUCT", payload: newProduct });
+    alert("Product added");
     location.goBack();
-  };
+  }
+
+  function openModel(event){
+    event.preventDefault()
+    setModal(<ModalAddCategory setModal={setModal}/>)
+  }
 
   return (
-   
-    <form onSubmit={(event)=>handleSubmit(event)}>
+    <form onSubmit={(event) => handleSubmit(event)}>
       <h2>Add New Product</h2>
 
       <label>
@@ -122,7 +130,8 @@ export default function FormAddProduct() {
         options={fields.description}
       /> */}
       <FormCreateIngredient data={[ingradient, setIngradient, list, setList]} />
-      <Dropdown categories={categories} state={[isSelected, setIsSelected]} />
+      <Dropdown state={[isSelected, setIsSelected]} />
+      <Link onClick={openModel}>Add New Category</Link>
       <Button text="Submit" />
     </form>
   );

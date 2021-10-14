@@ -2,18 +2,22 @@ import useForm from "../utils/useForm";
 import Button from "./Button";
 import { createDoc } from "../scripts/fireStore";
 import { useHistory } from "react-router-dom";
-export default function FormAddCategory() {
-  const location = useHistory();
+import { useCategory } from "../state/CategoryProvider";
+export default function ModalAddCategory({setModal}) {
+  const {dispatch}=useCategory()
   const [values, handleChange, setState] = useForm();
   function handleSubmit(e) {
     e.preventDefault()
     createDoc("categories", values);
+    dispatch({ type: "ADD_CATEGORY", payload: values });
     setState({});
+    console.log(values)
     alert('Category added')
-    location.goBack()
+    setModal(null)
   }
   return (
-    <form onSubmit={(e)=>handleSubmit(e)}>
+    <form className='modalForm' onSubmit={(e)=>handleSubmit(e)}>
+      <h2>Add Category</h2>
       <label>
         <b>Category name</b>
         <input

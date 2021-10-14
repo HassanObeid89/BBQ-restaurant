@@ -1,11 +1,10 @@
-import { useState } from "react";
-
 import { useProduct } from "../state/ProductProvider";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 
 export default function AdminPage() {
   const { products } = useProduct();
+  
   
   const Rows = products.map((item, index) => (
     <tr key={index}>
@@ -32,9 +31,6 @@ export default function AdminPage() {
       </table>
       <Link to="/addProductForm">
         <Button text="Add Product" />
-      </Link>
-      <Link to="/addCategoryForm">
-        <Button text="Add Category" />
       </Link>
     </div>
   );
