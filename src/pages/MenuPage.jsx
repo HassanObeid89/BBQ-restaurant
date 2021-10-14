@@ -25,7 +25,6 @@ export default function MenuPage() {
   useEffect(() => fetchData(path), [fetchData]);
 
   const Categories = categories.map((item)=><CategoryItem key={item.id} item={item}/>)
-  console.log(Categories)
     return (
         <div>{status===1 && <ul>{Categories}</ul>}</div>
     )
