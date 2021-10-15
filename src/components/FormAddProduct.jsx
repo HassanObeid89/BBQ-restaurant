@@ -1,50 +1,29 @@
-import { useState, useCallback, useEffect } from "react";
-import { useCategory } from "../state/CategoryProvider";
-import { getCollection } from "../scripts/fireStore";
+import { useState } from "react";
 import useForm from "../utils/useForm";
 import { createDoc } from "../scripts/fireStore";
-import FormCreateIngredient from "./FormAddIngredient";
+import { Link, useHistory } from "react-router-dom";
 
+import FormCreateIngredient from "./FormAddIngredient";
 import Dropdown from "./Dropdown";
 import ModalAddCategory from "./ModalAddCategory";
 import Button from "./Button";
-
-import { Link, useHistory } from "react-router-dom";
-
 import { useProduct } from "../state/ProductProvider";
 
 export default function FormAddProduct({setModal}) {
   
   const { dispatchProducts } = useProduct();
   const location = useHistory();
-  const [ingradient, setIngradient] = useState("");
+  const [ingredient, setIngredient] = useState("");
   const [list, setList] = useState([]);
   const [isSelected, setIsSelected] = useState("Please choose category");
   const [values, handleChange, setState] = useForm();
-  // const { categories, dispatch } = useCategory();
-  // const path = "categories";
 
-  //   // Methods
-  //   const fetchData = useCallback(
-  //     async (path) => {
-  //       try {
-  //         const categories = await getCollection(path);
-  
-  //         dispatch({ type: "SET_CATEGORIES", payload: categories });
-  //       } catch {
-  
-  //       }
-  //     },
-  //     [dispatch]
-  //   );
-  
-  //   useEffect(() => fetchData(path), [fetchData]);
 
   function handleSubmit(event) {
     event.preventDefault();
     const newProduct = {
       ...values,
-      ingradients: list,
+      ingredients: list,
       category: isSelected,
     };
     createDoc("products", newProduct);
@@ -86,7 +65,7 @@ export default function FormAddProduct({setModal}) {
       </label>
       <label>
         <b>Description</b>
-        <input
+        <textarea
           type="text"
           name="description"
           placeholder="the....."
@@ -129,7 +108,7 @@ export default function FormAddProduct({setModal}) {
         // values={values.name || ""}
         options={fields.description}
       /> */}
-      <FormCreateIngredient data={[ingradient, setIngradient, list, setList]} />
+      <FormCreateIngredient data={[ingredient, setIngredient, list, setList]} />
       <Dropdown state={[isSelected, setIsSelected]} />
       <Link onClick={openModel}>Add New Category</Link>
       <Button text="Submit" />

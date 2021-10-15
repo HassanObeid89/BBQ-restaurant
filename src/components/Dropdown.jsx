@@ -6,7 +6,7 @@ export default function Dropdown({ state }) {
   const [isActive, setIsActive] = useState(false);
   const [isSelected, setIsSelected] = state;
   const {categories}=useCategory()
-  console.log(categories)
+ 
 
 
   const options = categories.map((category) => (

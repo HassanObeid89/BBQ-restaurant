@@ -1,4 +1,5 @@
-input, textarea {
+input,
+textarea {
   background: rgba(196, 196, 196, 0.4);
   border-radius: 20px;
   border-style: none;
@@ -24,9 +25,9 @@ form .ingradient button {
   color: white;
   font-size: 20px;
 }
-form .ingradient ul{
-    display: flex;
-    flex-wrap: wrap;
+form .ingradient ul {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 form .ingradient li {
@@ -42,21 +43,29 @@ label {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+  margin: 0 auto;
+  max-width: 470px;
+}
+label input {
+  align-items: center;
 }
 
 label b {
   margin-left: 15px;
 }
-
+form h2 {
+  margin-top: var(--space-big);
+}
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 80%;
+  max-width: 560px;
   margin: 0 auto;
 }
 
-.button-wrapper{
+.button-wrapper {
   display: flex;
   margin-top: 10px;
 }
