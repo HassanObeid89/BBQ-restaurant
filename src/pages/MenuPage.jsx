@@ -26,6 +26,6 @@ export default function MenuPage() {
 
   const Categories = categories.map((item)=><CategoryItem key={item.id} item={item}/>)
     return (
-        <div>{status===1 && <ul>{Categories}</ul>}</div>
+        <div className='card-wrapper'>{status===1 && <ul>{Categories}</ul>}</div>
     )
 }

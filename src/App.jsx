@@ -65,6 +65,7 @@ export default function App() {
       <Switch>
         <Route path="/" component={HomePage} exact />
         <Route path="/categorypage/:categoryname" component={CategoryPage} />
+        <Route path='/productpage/:id' component={ProductPage}/>
         <Route path="/menu" component={MenuPage} />
         <Route path="/admin" component={AdminPage} />
         <Route path="/addProductForm">

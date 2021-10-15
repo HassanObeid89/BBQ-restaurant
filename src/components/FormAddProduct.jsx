@@ -13,7 +13,7 @@ export default function FormAddProduct({setModal}) {
   
   const { dispatchProducts } = useProduct();
   const location = useHistory();
-  const [ingradient, setIngradient] = useState("");
+  const [ingredient, setIngredient] = useState("");
   const [list, setList] = useState([]);
   const [isSelected, setIsSelected] = useState("Please choose category");
   const [values, handleChange, setState] = useForm();
@@ -23,7 +23,7 @@ export default function FormAddProduct({setModal}) {
     event.preventDefault();
     const newProduct = {
       ...values,
-      ingradients: list,
+      ingredients: list,
       category: isSelected,
     };
     createDoc("products", newProduct);
@@ -108,7 +108,7 @@ export default function FormAddProduct({setModal}) {
         // values={values.name || ""}
         options={fields.description}
       /> */}
-      <FormCreateIngredient data={[ingradient, setIngradient, list, setList]} />
+      <FormCreateIngredient data={[ingredient, setIngredient, list, setList]} />
       <Dropdown state={[isSelected, setIsSelected]} />
       <Link onClick={openModel}>Add New Category</Link>
       <Button text="Submit" />

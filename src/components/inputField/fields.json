@@ -27,12 +27,12 @@
     "type": "text",
     "fname":"description"
   },
-  "ingradients": {
-    "label": "Ingradients",
+  "ingredients": {
+    "label": "Ingredients",
     "instructions": "",
     "placeholder": "Chilli",
     "type": "text",
-    "name":"ingradients"
+    "name":"ingredients"
   },
   "Name":{
     "label": "Category name",

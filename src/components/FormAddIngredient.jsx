@@ -1,16 +1,16 @@
 import fields from "./inputField/fields.json";
 
 export default function FormAddIngredient({ data }) {
-  const [ingradient, setIngradient, list, setList] = data;
-  const { label, placeholder, type, name } = fields.ingradients;
+  const [ingredient, setIngredient, list, setList] = data;
+  const { label, placeholder, type, name } = fields.ingredients;
 
   function onSubmit(event) {
     event.preventDefault();
-    const ingradients = ingradient;
-    setList([...list, ingradients]);
-    setIngradient("");
+    
+    setList([...list, ingredient]);
+    setIngredient("");
   }
-  const ingradientList = list.map((ingradient)=><li>{ingradient}</li>)
+  const ingredientList = list.map((ingredient)=><li>{ingredient}</li>)
   return (
     <section className='ingradient'>
       <label>
@@ -18,14 +18,14 @@ export default function FormAddIngredient({ data }) {
         <input
           type={type}
           name={name}
-          value={ingradient}
+          value={ingredient}
           placeholder={placeholder}
-          onChange={(event) => setIngradient(event.target.value)}
+          onChange={(event) => setIngredient(event.target.value)}
         />
         <button onClick={(event) => onSubmit(event)}>+</button>
         
       </label>
-      <ul>{ingradientList}</ul>
+      <ul>{ingredientList}</ul>
     </section>
   );
 }

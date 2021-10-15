@@ -11,7 +11,6 @@ export default function ModalAddCategory({setModal}) {
     createDoc("categories", values);
     dispatch({ type: "ADD_CATEGORY", payload: values });
     setState({});
-    console.log(values)
     alert('Category added')
     setModal(null)
   }
