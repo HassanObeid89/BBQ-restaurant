@@ -46,26 +46,11 @@ export default function ModalAddCategory({ setModal }) {
           onChange={handleChange}
         />
       </label>
-      {/* <InputField
-        handleChange={handleChange}
-        values={values.name || ""}
-        options={fields.Name}
-      />
-      <InputField
-        handleChange={handleChange}
-        values={values.name || ""}
-        name="description"
-        options={fields.description}
-      />
-      <InputField
-        handleChange={handleChange}
-        values={values.name || ""}
-        name="imageUrl"
-        options={fields.imageUrl}
-      /> */}
-      <section className='footer'>
-      <button onClick={()=>setModal(null)} className='button-secondary'>Cancel</button>
-      <button className='button-main'>Submit</button>
+      <section className="footer">
+        <button onClick={() => setModal(null)} className="button-secondary">
+          Cancel
+        </button>
+        <button className="button-main">Submit</button>
       </section>
     </form>
   );

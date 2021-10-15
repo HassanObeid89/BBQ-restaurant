@@ -31,12 +31,10 @@ export default function FormAddProduct({ setModal }) {
     event.preventDefault();
     setModal(<ModalAddCategory setModal={setModal} />);
   }
-  // const inputField = fields.map((options)=>(<InputField options={options} onChange={handleChange} values={values} />))
+
   return (
     <form onSubmit={(event) => handleSubmit(event)}>
       <h2>Add New Product</h2>
-      {/* {inputField} */}
-    
       <label>
         <b>product name</b>
         <input

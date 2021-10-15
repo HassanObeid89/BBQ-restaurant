@@ -91,7 +91,6 @@ export default function AdminPage() {
       <Link to="/addProductForm">
         <button className="button-main">Add Product</button>
       </Link>
-      
     </div>
   );
 }

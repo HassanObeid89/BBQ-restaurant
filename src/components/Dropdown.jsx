@@ -14,7 +14,7 @@ export default function Dropdown({ state }) {
     <div
       key={category.id}
       className="dropdown-item"
-      onClick={()=>handleClick(category)}
+      onClick={() => handleClick(category)}
     >
       {category.name}
     </div>
@@ -23,7 +23,7 @@ export default function Dropdown({ state }) {
     <section className="dropdown">
       <div className="dropdown-btn" onClick={() => setIsActive(!isActive)}>
         {isSelected}
-        <img src={caretdownIcon} alt=''/>
+        <img src={caretdownIcon} alt="" />
       </div>
       {isActive && <div className="dropdown-content">{options}</div>}
     </section>

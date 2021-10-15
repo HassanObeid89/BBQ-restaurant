@@ -1,11 +1,11 @@
- .modalForm{
-    padding: 20px 20px;
-    max-width: 260px;
-    width: 100%;
-    max-width: 550px;
-    border-radius: 12px;
+.modalForm {
+  padding: 20px 20px;
+  max-width: 260px;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 12px;
 }
 
-.modalForm h2{
-    margin-bottom: var(--space-big);
+.modalForm h2 {
+  margin-bottom: var(--space-big);
 }

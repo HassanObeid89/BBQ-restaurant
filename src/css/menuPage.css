@@ -1,7 +1,6 @@
 .card-wrapper ul {
   display: grid;
   justify-items: center;
-  
 }
 
 .menu-page {
@@ -30,7 +29,6 @@
   color: var(--color-gray-light);
   font-size: 48px;
   text-shadow: 2px 4px 4px rgba(212, 6, 6, 0.837);
- 
 }
 
 .menu-page p {
@@ -54,5 +52,4 @@
     max-width: 960px;
     margin: 0 auto;
   }
-
 }

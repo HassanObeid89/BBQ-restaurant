@@ -6,7 +6,9 @@ export default function NavBar() {
       <ul>
         <li>
           <Link to="/">
-            <h2>F<span className='red'>OO</span>DY</h2>
+            <h2>
+              F<span className="red">OO</span>DY
+            </h2>
           </Link>
         </li>
         <li>

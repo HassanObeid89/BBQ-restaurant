@@ -20,8 +20,8 @@ td {
 th {
   background-color: var(--color-red-light);
 }
-table textarea{
-  background-color:#E6E0E0;
+table textarea {
+  background-color: #e6e0e0;
   border-radius: 0;
   width: 100%;
   height: 100%;

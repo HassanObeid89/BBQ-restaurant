@@ -1,15 +1,14 @@
 nav {
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
   filter: drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.25));
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 1;
-
 }
 
 nav h2 {
-  font-family: 'Walter Turncoat';
+  font-family: "Walter Turncoat";
   font-size: 24px;
 }
 nav h2 .red {

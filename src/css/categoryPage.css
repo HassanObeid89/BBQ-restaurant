@@ -1,4 +1,4 @@
-.category-wrapper ul{
+.category-wrapper ul {
   display: grid;
   justify-items: center;
 }
@@ -59,7 +59,6 @@
   }
   .category-wrapper p {
     font-size: var(--font-text-desktop);
-
   }
   .category-wrapper h1 {
     top: 40%;

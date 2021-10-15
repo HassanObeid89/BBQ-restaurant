@@ -7,7 +7,7 @@ export default function productReducer(state, action) {
     case "UPDATE_PRODUCT":
       return updateProduct(state, action);
     case "DELETE_PRODUCT":
-      return deleteProduct(state, action)
+      return deleteProduct(state, action);
     default:
       throw new Error("no action type found");
   }
@@ -26,15 +26,15 @@ export default function productReducer(state, action) {
     const { payload } = action;
     const newState = [...state];
     const index = newState.findIndex((item) => item.id === payload.id);
-  
+
     newState[index] = { ...payload };
     return newState;
   }
-  function deleteProduct(state, action){
+  function deleteProduct(state, action) {
     const { payload } = action;
     const newState = [...state];
     const index = newState.findIndex((item) => item.id === payload.id);
-  
+
     newState[index] = { ...payload };
     return newState;
   }
