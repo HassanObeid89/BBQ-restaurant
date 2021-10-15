@@ -1,70 +1,82 @@
-# Getting Started with Create React App
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# 1. BBQ Restuarant app
 
-In the project directory, you can run:
+This is a BBQ Restuarant web app, that allow users to navigate easily between categories and have a detailed information for each products.
+An admin page that can be access adding  
+'/admin' to the base URL.
+The admin page allows the owner to add, delete, edit new products.
 
-### `yarn start`
+The project is done with the latest version of React and uses functional components with Hooks for better modularity in case it needs to be expanded connected to fireStore database.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 2. Setup
 
-### `yarn test`
+These are the instructions to run the project:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Open the terminal and navigate to the folder where this readme file is located.
+1. Install the project dependencies by typing `npm install` on the terminal.
+1. Start the project by typing `npm start` on the terminal.
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 3. Usage instructions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To get started press on the Menu to show all the categories then all the products for each category and then each product card will nevigate you to the product details for more details.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can nevigate to the about page to book a table easliy where ever you are in the site by clicking the about us link in navigation bar.
 
-### `yarn eject`
+The admin can nevigate to the admin page that shows table of products with the ability to edit and delete. then a button to add new product by submitting the product form.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 4. Dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Beside React JS and it's own dependencies, this project uses:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Firebase for hosting the project.
+2. react-router-dom to navigate between pages.
+3. FireStore database.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 5. Project organization
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 5.1 Requirement gathering
 
-### Code Splitting
+[Icloud pages link](https://www.icloud.com/pages/0FlYOOyhv6O_WqiszJ_NZ-Xhw#project-5-bbq-restaurant-hassan-obeid)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+### 5.2 Project spreadsheet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+A spreadsheet with the information related to the organization of the project.
 
-### Making a Progressive Web App
+[Google Spreadsheets link](https://docs.google.com/spreadsheets/d/1deuOaBYKyihOz2HA21FmPJk0Ny2FQF8U/edit?usp=sharing&ouid=115827464576694642970&rtpof=true&sd=true)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+### 5.3 Design mockup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+A low detail mockup to visualize how the app will look.
 
-### Deployment
+The focus is on colors, fonts, branding and the positions of each element on the screen.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[Figma link](https://docs.google.com/spreadsheets/d/1deuOaBYKyihOz2HA21FmPJk0Ny2FQF8U/edit?usp=sharing&ouid=115827464576694642970&rtpof=true&sd=true)
 
-### `yarn build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 5.4 Component tree
+
+The component tree allows to visualize the overall hierarchy of the project.
+
+The diagram covers the overal application layout:
+
+[Component tree](https://whimsical.com/component-tree-bbq-6yqnpLqab9PK71XRDpowxx)
+
+### 5.5 User Flow
+
+The User Flow allows to visualize the interactions with the web app.
+
+[User Flow](https://whimsical.com/flow-chart-bbq-restaurant-MW7Kii8XStu69LkL4fot62)

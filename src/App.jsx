@@ -67,7 +67,7 @@ export default function App() {
         <Route path="/categorypage/:categoryname" component={CategoryPage} />
         <Route path='/productpage/:id' component={ProductPage}/>
         <Route path="/menu" component={MenuPage} />
-        <Route path="/admin" component={AdminPage} />
+        <Route path="/admin" component={AdminPage} exact />
         <Route path="/addProductForm">
           <FormAddProduct setModal={setModal} />
         </Route>
