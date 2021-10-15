@@ -1,4 +1,3 @@
-import Button from "./Button";
 export default function BookTable() {
   return (
     <div>
@@ -11,7 +10,7 @@ export default function BookTable() {
         <input type="date" />
         Time
         <input type="time" />
-        <Button text='Submit'/>
+        <button className="button-main" />
       </form>
     </div>
   );

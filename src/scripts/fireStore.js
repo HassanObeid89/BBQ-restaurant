@@ -1,4 +1,11 @@
-import { collection, getDocs, addDoc } from "firebase/firestore/lite";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  doc,
+  deleteDoc,
+} from "firebase/firestore/lite";
 import { fireStoreInstance } from "../scripts/firebase";
 
 export async function createDoc(path, data) {
@@ -14,4 +21,15 @@ export async function getCollection(path) {
     return { id: doc.id, ...doc.data() };
   });
   return list;
+}
+export async function updateDocument(path, data) {
+  const documentReference = doc(fireStoreInstance, path, data.id);
+
+  await updateDoc(documentReference, data);
+}
+
+export async function deleteDocument(path, id) {
+  const docReference = doc(fireStoreInstance, path, id);
+
+  await deleteDoc(docReference);
 }

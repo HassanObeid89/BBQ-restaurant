@@ -57,7 +57,7 @@ export default function App() {
   useEffect(() => {
     fetchData(path);
     fetchCategory(path2);
-  }, []);
+  }, [fetchCategory,fetchData]);
 
   const Browser = (
     <BrowserRouter>
