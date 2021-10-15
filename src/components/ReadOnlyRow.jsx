@@ -22,10 +22,10 @@ export default function ReadOnlyRow({ key, item, handleClick, onDelete }) {
         <textarea value={ingredients} />
       </td>
       <td>
-        <button onClick={(event) => handleClick(event, item.id, item)}>
+        <button className='edit-button' onClick={(event) => handleClick(event, item.id, item)}>
           Edit
         </button>
-        <button onClick={()=>onDelete(item.id)}>Delete</button>
+        <button className='delete-button' onClick={()=>onDelete(item.id)}>Delete</button>
       </td>
     </tr>
   );
