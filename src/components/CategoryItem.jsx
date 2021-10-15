@@ -8,7 +8,7 @@ export default function CategoryItem({ item }) {
       <h1>{name}</h1>
       <p>{description}</p>
       <Link to={`/categorypage/${name}`}>
-        <button className="button-main" />
+        <button className="button-main">View</button>
       </Link>
     </li>
   );

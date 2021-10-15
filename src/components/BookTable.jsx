@@ -10,7 +10,7 @@ export default function BookTable() {
         <input type="date" />
         Time
         <input type="time" />
-        <button className="button-main" />
+        <button className="button-main">Book</button>
       </form>
     </div>
   );
