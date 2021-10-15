@@ -1,9 +1,9 @@
-import { useState, useCallback, useEffect } from 'react';
-import {useCategory} from '../state/CategoryProvider'
-import CategoryItem from '../components/CategoryItem';
-import { getCollection } from '../scripts/fireStore';
+import { useState, useCallback, useEffect } from "react";
+import { useCategory } from "../state/CategoryProvider";
+import CategoryItem from "../components/CategoryItem";
+import { getCollection } from "../scripts/fireStore";
 export default function MenuPage() {
-      // Global state
+  // Global state
   const { categories, dispatch } = useCategory();
 
   // Local state
@@ -11,21 +11,26 @@ export default function MenuPage() {
   const path = "categories";
 
   // Methods
-  const fetchData = useCallback(async (path) => {
-    try {
-      const categories = await getCollection(path);
+  const fetchData = useCallback(
+    async (path) => {
+      try {
+        const categories = await getCollection(path);
 
-      dispatch({ type: "SET_CATEGORIES", payload: categories });
-      setStatus(1);
-    } catch {
-      setStatus(2);
-    }
-  }, [dispatch]);
+        dispatch({ type: "SET_CATEGORIES", payload: categories });
+        setStatus(1);
+      } catch {
+        setStatus(2);
+      }
+    },
+    [dispatch]
+  );
 
   useEffect(() => fetchData(path), [fetchData]);
 
-  const Categories = categories.map((item)=><CategoryItem key={item.id} item={item}/>)
-    return (
-        <div className='card-wrapper'>{status===1 && <ul>{Categories}</ul>}</div>
-    )
+  const Categories = categories.map((item) => (
+    <CategoryItem key={item.id} item={item} />
+  ));
+  return (
+    <div className="card-wrapper">{status === 1 && <ul>{Categories}</ul>}</div>
+  );
 }

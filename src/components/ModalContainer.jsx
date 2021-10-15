@@ -7,7 +7,6 @@ export default function ModalContainer({ modal, setModal }) {
     <>
       <div onClick={() => setModal(null)} className="modal-background"></div>
       <div className="modal-window ">
-        {/* <FaWindowClose className="icon" onClick={() => setModal(null)} /> */}
         {modal}
       </div>
     </>,

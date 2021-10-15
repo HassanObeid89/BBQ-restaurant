@@ -1,24 +1,20 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState } from "react";
 import { useCategory } from "../state/CategoryProvider";
 import caretdownIcon from "../assets/images/caretdownIcon.svg";
-import { getCollection } from "../scripts/fireStore";
+
 export default function Dropdown({ state }) {
   const [isActive, setIsActive] = useState(false);
   const [isSelected, setIsSelected] = state;
-  const {categories}=useCategory()
- 
-
-
+  const { categories } = useCategory();
+  function handleClick(category) {
+    setIsSelected(category.name);
+    setIsActive(false);
+  }
   const options = categories.map((category) => (
-    
     <div
-    
       key={category.id}
       className="dropdown-item"
-      onClick={() => {
-        setIsSelected(category.name);
-        setIsActive(false);
-      }}
+      onClick={()=>handleClick(category)}
     >
       {category.name}
     </div>
@@ -27,7 +23,7 @@ export default function Dropdown({ state }) {
     <section className="dropdown">
       <div className="dropdown-btn" onClick={() => setIsActive(!isActive)}>
         {isSelected}
-        <img src={caretdownIcon} />
+        <img src={caretdownIcon} alt=''/>
       </div>
       {isActive && <div className="dropdown-content">{options}</div>}
     </section>

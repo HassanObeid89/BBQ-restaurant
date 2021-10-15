@@ -3,40 +3,32 @@ import useForm from "../utils/useForm";
 import { createDoc } from "../scripts/fireStore";
 import { Link, useHistory } from "react-router-dom";
 
-import FormCreateIngredient from "./FormAddIngredient";
 import Dropdown from "./Dropdown";
 import ModalAddCategory from "./ModalAddCategory";
-import Button from "./Button";
 import { useProduct } from "../state/ProductProvider";
 
-export default function FormAddProduct({setModal}) {
-  
+export default function FormAddProduct({ setModal }) {
   const { dispatchProducts } = useProduct();
   const location = useHistory();
-  const [ingredient, setIngredient] = useState("");
-  const [list, setList] = useState([]);
   const [isSelected, setIsSelected] = useState("Please choose category");
   const [values, handleChange, setState] = useForm();
-
 
   function handleSubmit(event) {
     event.preventDefault();
     const newProduct = {
       ...values,
-      ingredients: list,
       category: isSelected,
     };
     createDoc("products", newProduct);
-    setList([]);
     setState({});
     dispatchProducts({ type: "ADD_PRODUCT", payload: newProduct });
     alert("Product added");
     location.goBack();
   }
 
-  function openModel(event){
-    event.preventDefault()
-    setModal(<ModalAddCategory setModal={setModal}/>)
+  function openModel(event) {
+    event.preventDefault();
+    setModal(<ModalAddCategory setModal={setModal} />);
   }
 
   return (
@@ -83,7 +75,16 @@ export default function FormAddProduct({setModal}) {
           onChange={handleChange}
         />
       </label>
-
+      <label>
+        <b>Ingredients</b>
+        <input
+          type="text"
+          name="ingredients"
+          placeholder="Meat, Oil, Salt"
+          value={values.ingredients || ""}
+          onChange={handleChange}
+        />
+      </label>
       {/* <InputField
         handleChange={handleChange}
         values={values}
@@ -108,10 +109,14 @@ export default function FormAddProduct({setModal}) {
         // values={values.name || ""}
         options={fields.description}
       /> */}
-      <FormCreateIngredient data={[ingredient, setIngredient, list, setList]} />
       <Dropdown state={[isSelected, setIsSelected]} />
       <Link onClick={openModel}>Add New Category</Link>
-      <Button text="Submit" />
+      <section>
+      <Link to='/admin'>
+      <button className='button-secondary'>Cancel</button>
+      </Link>
+      <button className='button-main'>Submit</button>
+      </section>
     </form>
   );
 }

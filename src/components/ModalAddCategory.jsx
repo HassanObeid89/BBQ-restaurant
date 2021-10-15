@@ -1,21 +1,20 @@
 import useForm from "../utils/useForm";
-import Button from "./Button";
+
 import { createDoc } from "../scripts/fireStore";
-import { useHistory } from "react-router-dom";
 import { useCategory } from "../state/CategoryProvider";
-export default function ModalAddCategory({setModal}) {
-  const {dispatch}=useCategory()
+export default function ModalAddCategory({ setModal }) {
+  const { dispatch } = useCategory();
   const [values, handleChange, setState] = useForm();
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     createDoc("categories", values);
     dispatch({ type: "ADD_CATEGORY", payload: values });
     setState({});
-    alert('Category added')
-    setModal(null)
+    alert("Category added");
+    setModal(null);
   }
   return (
-    <form className='modalForm' onSubmit={(e)=>handleSubmit(e)}>
+    <form className="modalForm" onSubmit={(e) => handleSubmit(e)}>
       <h2>Add Category</h2>
       <label>
         <b>Category name</b>
@@ -64,7 +63,10 @@ export default function ModalAddCategory({setModal}) {
         name="imageUrl"
         options={fields.imageUrl}
       /> */}
-      <Button text='Submit'>Submit</Button>
+      <section>
+      <button onClick={()=>setModal(null)} className='button-secondary'>Cancel</button>
+      <button className='button-main'>Submit</button>
+      </section>
     </form>
   );
 }
