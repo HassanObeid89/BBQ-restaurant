@@ -48,7 +48,7 @@ export default function EditableRow({
         />
       </td>
       <td>
-        <button onClick={() => updateProduct(editProduct)}>Save</button>
+        <button className='edit-button' onClick={() => updateProduct(editProduct)}>Save</button>
       </td>
     </tr>
   );

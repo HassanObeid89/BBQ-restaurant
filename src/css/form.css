@@ -69,3 +69,8 @@ form {
   display: flex;
   margin-top: 10px;
 }
+.footer{
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+}
