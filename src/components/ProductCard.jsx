@@ -9,7 +9,7 @@ export default function ProductCard({ item }) {
       <span>{price}:-</span>
       <p>{description}</p>
       <Link to={`/productpage/${id}`}>
-        <button className="button-main" />
+        <button className="button-main">View</button>
       </Link>
     </li>
   );
