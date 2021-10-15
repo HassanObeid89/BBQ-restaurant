@@ -18,7 +18,7 @@
     "instructions": "Please copy the image Url of the product from any website",
     "placeholder": "https//www.example/image.png",
     "type": "text",
-    "fname":"imageUrl"
+    "fname":"imgUrl"
   },
   {
     "label": "Description",
