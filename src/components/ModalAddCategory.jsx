@@ -39,9 +39,9 @@ export default function ModalAddCategory({ setModal }) {
       <label>
         <b>Image Url</b>
         <input
-          value={values.imgURL || ""}
           type="text"
-          name="imageURL"
+          name="imgURL"
+          value={values.imgURL || ""}
           placeholder="https://unsplash.com/photos/8OpyEpJVgiQ"
           onChange={handleChange}
         />

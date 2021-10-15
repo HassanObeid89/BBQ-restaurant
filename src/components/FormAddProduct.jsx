@@ -70,7 +70,7 @@ export default function FormAddProduct({ setModal }) {
         <input
           type="text"
           name="imgURL"
-          placeholder="www.ghfj.com"
+          placeholder="https://unsplash.com/photos/8OpyEpJVgiQ"
           value={values.imgURL || ""}
           onChange={handleChange}
         />
