@@ -2,7 +2,8 @@ import { useState } from "react";
 import useForm from "../utils/useForm";
 import { createDoc } from "../scripts/fireStore";
 import { Link, useHistory } from "react-router-dom";
-
+import InputField from "./inputField/InputField";
+import fields from "./inputField/fields.json";
 import Dropdown from "./Dropdown";
 import ModalAddCategory from "./ModalAddCategory";
 import { useProduct } from "../state/ProductProvider";
@@ -30,11 +31,12 @@ export default function FormAddProduct({ setModal }) {
     event.preventDefault();
     setModal(<ModalAddCategory setModal={setModal} />);
   }
-
+  // const inputField = fields.map((options)=>(<InputField options={options} onChange={handleChange} values={values} />))
   return (
     <form onSubmit={(event) => handleSubmit(event)}>
       <h2>Add New Product</h2>
-
+      {/* {inputField} */}
+    
       <label>
         <b>product name</b>
         <input
@@ -85,37 +87,14 @@ export default function FormAddProduct({ setModal }) {
           onChange={handleChange}
         />
       </label>
-      {/* <InputField
-        handleChange={handleChange}
-        values={values}
-        // values={values.name || ""}
-        options={fields.name}
-      />
-      <InputField
-        handleChange={handleChange}
-        values={values}
-        // values={values.name || ""}
-        options={fields.price}
-      />
-      <InputField
-        handleChange={handleChange}
-        values={values}
-        // values={values.name || ""}
-        options={fields.imageUrl}
-      />
-      <InputField
-        handleChange={handleChange}
-        values={values}
-        // values={values.name || ""}
-        options={fields.description}
-      /> */}
+
       <Dropdown state={[isSelected, setIsSelected]} />
-      <Link onClick={openModel}>Add New Category</Link>
-      <section>
-      <Link to='/admin'>
-      <button className='button-secondary'>Cancel</button>
-      </Link>
-      <button className='button-main'>Submit</button>
+      <a onClick={openModel}>Add New Category</a>
+      <section className="footer">
+        <Link to="/admin">
+          <button className="button-secondary">Cancel</button>
+        </Link>
+        <button className="button-main">Submit</button>
       </section>
     </form>
   );

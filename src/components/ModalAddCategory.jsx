@@ -63,7 +63,7 @@ export default function ModalAddCategory({ setModal }) {
         name="imageUrl"
         options={fields.imageUrl}
       /> */}
-      <section>
+      <section className='footer'>
       <button onClick={()=>setModal(null)} className='button-secondary'>Cancel</button>
       <button className='button-main'>Submit</button>
       </section>
