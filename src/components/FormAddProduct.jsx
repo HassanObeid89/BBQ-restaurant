@@ -22,7 +22,6 @@ export default function FormAddProduct({ setModal }) {
     };
     createDoc("products", newProduct);
     setState({});
-    console.log(values);
     dispatchProducts({ type: "ADD_PRODUCT", payload: newProduct });
     alert("Product added");
     location.goBack();
