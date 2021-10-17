@@ -8,34 +8,8 @@ textarea {
   width: 100%;
   max-width: 460px;
 }
-form .ingradient {
+fieldset{
   width: 100%;
-}
-form .ingradient label {
-  position: relative;
-  max-width: 470px;
-}
-form .ingradient button {
-  position: absolute;
-  left: 88%;
-  transform: translateY(120%);
-  border-radius: 800px;
-  border: none;
-  background-color: var(--color-red);
-  color: white;
-  font-size: 20px;
-}
-form .ingradient ul {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-form .ingradient li {
-  background: #c4c4c4;
-  box-shadow: 0px 0px 4px 6px rgba(192, 18, 10, 0.36);
-  border-radius: 50px;
-  margin: 10px;
-  padding: 5px 10px;
 }
 
 label {

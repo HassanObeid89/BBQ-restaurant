@@ -3,7 +3,7 @@ export default function InputField({ options, handleChange, values }) {
   const { label, instructions, placeholder, key, type } = options;
   const inputReference = useRef(null);
   return (
-    <section>
+    <fieldset>
       <label>
         {instructions && <small>{instructions}</small>}
         <b>{label}</b>
@@ -14,6 +14,6 @@ export default function InputField({ options, handleChange, values }) {
           onChange={() => handleChange(key, inputReference.current.value)}
         />
       </label>
-    </section>
+    </fieldset>
   );
 }
