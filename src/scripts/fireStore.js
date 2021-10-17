@@ -1,11 +1,5 @@
-import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  doc,
-  deleteDoc,
-} from "firebase/firestore/lite";
+import { getDocs, addDoc, updateDoc, deleteDoc } from "firebase/firestore/lite";
+import { collection, doc } from "firebase/firestore/lite";
 import { fireStoreInstance } from "../scripts/firebase";
 
 export async function createDoc(path, data) {
