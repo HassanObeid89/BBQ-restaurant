@@ -13,7 +13,6 @@ import FormAddProduct from "../components/FormAddProduct";
 import CategoryPage from "../pages/CategoryPage";
 import ModalContainer from "../components/ModalContainer";
 
-
 export default function Browser() {
   const [modal, setModal] = useState(null);
   return (

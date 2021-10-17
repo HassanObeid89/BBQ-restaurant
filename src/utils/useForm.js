@@ -3,10 +3,10 @@ import { useState } from "react";
 export default function useForm() {
   const [state, setState] = useState({});
 
-  const handleChange = (e) => {
-    e.persist();
-    setState((state) => ({ ...state, [e.target.name]: e.target.value }));
-  };
+  function handleChange(key,value){
+    const field = {[key]:value}
+    setState({...state,...field})
+  }
 
   return [state, handleChange, setState];
 }

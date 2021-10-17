@@ -2,7 +2,6 @@
 import { useState, useCallback, useEffect } from "react";
 import { getCollection } from "./scripts/fireStore";
 
-
 //Project files
 import Browser from "./components/Browser";
 import { useProduct } from "./state/ProductProvider";
@@ -10,7 +9,6 @@ import { useCategory } from "./state/CategoryProvider";
 import "./css/style.css";
 
 export default function App() {
-  
   const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
   const { dispatchProducts } = useProduct();
   const { dispatch } = useCategory();
@@ -49,12 +47,12 @@ export default function App() {
   useEffect(() => {
     fetchData(path);
     fetchCategory(path2);
-  }, [fetchCategory,fetchData]);
+  }, [fetchCategory, fetchData]);
 
   return (
     <div className="App">
       {status === 0 && <p>Loading...</p>}
-      {status === 1 && <Browser/>}
+      {status === 1 && <Browser />}
       {status === 2 && <p>Error</p>}
     </div>
   );
