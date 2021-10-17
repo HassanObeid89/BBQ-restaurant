@@ -3,7 +3,7 @@ import useForm from "../utils/useForm";
 import { createDoc } from "../scripts/fireStore";
 import { Link, useHistory } from "react-router-dom";
 import InputField from "./inputField/InputField";
-import fields from "./inputField/fields.json";
+import productFields from "./inputField/productFields.json";
 import Dropdown from "./Dropdown";
 import ModalAddCategory from "./ModalAddCategory";
 import { useProduct } from "../state/ProductProvider";
@@ -33,7 +33,7 @@ export default function FormAddProduct({ setModal }) {
     setModal(<ModalAddCategory setModal={setModal} />);
   }
 
-  const inputFields = fields.map((input) => (
+  const inputFields = productFields.map((input) => (
     <InputField options={input} handleChange={handleChange} values={values} />
   ));
 

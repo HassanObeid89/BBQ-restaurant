@@ -1,5 +1,6 @@
 import useForm from "../utils/useForm";
-
+import InputField from "./inputField/InputField";
+import categoryFields from './inputField/categoryFields.json'
 import { createDoc } from "../scripts/fireStore";
 import { useCategory } from "../state/CategoryProvider";
 export default function ModalAddCategory({ setModal }) {
@@ -13,10 +14,15 @@ export default function ModalAddCategory({ setModal }) {
     alert("Category added");
     setModal(null);
   }
+
+  const inputFields = categoryFields.map((input) => (
+    <InputField options={input} handleChange={handleChange} values={values} />
+  ));
   return (
     <form className="modalForm" onSubmit={(e) => handleSubmit(e)}>
       <h2>Add Category</h2>
-      <label>
+      {inputFields}
+      {/* <label>
         <b>Category name</b>
         <input
           value={values.name || ""}
@@ -45,7 +51,7 @@ export default function ModalAddCategory({ setModal }) {
           placeholder="https://unsplash.com/photos/8OpyEpJVgiQ"
           onChange={handleChange}
         />
-      </label>
+      </label> */}
       <section className="footer">
         <button onClick={() => setModal(null)} className="button-secondary">
           Cancel
