@@ -17,8 +17,8 @@ export default function CategoryPage() {
   const cards = filteredItems.map((item) => (
     <ProductCard key={item.id} item={item} />
   ));
-  console.log(products)
-  console.log(category)
+  console.log(products);
+  console.log(category);
   return (
     <div className="category-wrapper">
       <img src={category[0].imgURL} className="hero" alt="" />

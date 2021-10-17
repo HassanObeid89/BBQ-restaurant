@@ -1,38 +1,37 @@
 [
   {
-    
     "label": "Product name",
     "instructions": "",
     "placeholder": "Grilled meat",
     "type": "text",
-    "key":"name"
+    "key": "name"
   },
   {
     "label": "Product price",
     "instructions": "",
     "placeholder": "240",
     "type": "number",
-    "key":"price"
+    "key": "price"
   },
   {
     "label": "Image Url",
     "instructions": "Please copy the image Url of the product from any website",
     "placeholder": "https//www.example/image.png",
     "type": "text",
-    "key":"imgUrl"
+    "key": "imgURL"
   },
   {
     "label": "Description",
     "instructions": "",
     "placeholder": "The best ever grilled meat...",
     "type": "text",
-    "key":"description"
+    "key": "description"
   },
   {
     "label": "Ingredients",
     "instructions": "",
     "placeholder": "Chilli",
     "type": "text",
-    "key":"ingredients"
+    "key": "ingredients"
   }
 ]
