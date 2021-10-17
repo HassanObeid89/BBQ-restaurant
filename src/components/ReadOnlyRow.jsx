@@ -4,22 +4,22 @@ export default function ReadOnlyRow({ key, item, handleClick, onDelete }) {
   return (
     <tr key={key}>
       <td>
-        <textarea value={name} />
+        <textarea readOnly value={name} />
       </td>
       <td>
-        <textarea value={price} />
+        <textarea readOnly value={price} />
       </td>
       <td>
-        <textarea value={category} />
+        <textarea readOnly value={category} />
       </td>
       <td>
-        <textarea value={description} />
+        <textarea readOnly value={description} />
       </td>
       <td>
-        <textarea value={imgURL} />
+        <textarea readOnly value={imgURL} />
       </td>
       <td>
-        <textarea value={ingredients} />
+        <textarea readOnly value={ingredients} />
       </td>
       <td>
         <button

@@ -1,24 +1,14 @@
 //NPM packages
 import { useState, useCallback, useEffect } from "react";
 import { getCollection } from "./scripts/fireStore";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 //Project files
-import NavBar from "./components/NavBar";
-import MenuPage from "./pages/MenuPage";
-import ProductPage from "./pages/ProductPage";
-import AdminPage from "./pages/AdminPage";
-import HomePage from "./pages/HomePage";
-import ContactUs from "./pages/ContactUs";
-import FormAddProduct from "./components/FormAddProduct";
-import CategoryPage from "./pages/CategoryPage";
-import ModalContainer from "./components/ModalContainer";
+import Browser from "./components/Browser";
 import { useProduct } from "./state/ProductProvider";
 import { useCategory } from "./state/CategoryProvider";
 import "./css/style.css";
 
 export default function App() {
-  const [modal, setModal] = useState(null);
   const [status, setStatus] = useState(0); // 0 loading, 1 loaded, 2 error
   const { dispatchProducts } = useProduct();
   const { dispatch } = useCategory();
@@ -57,30 +47,12 @@ export default function App() {
   useEffect(() => {
     fetchData(path);
     fetchCategory(path2);
-  }, [fetchCategory,fetchData]);
-
-  const Browser = (
-    <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Route path="/" component={HomePage} exact />
-        <Route path="/categorypage/:categoryname" component={CategoryPage} />
-        <Route path='/productpage/:id' component={ProductPage}/>
-        <Route path="/menu" component={MenuPage} />
-        <Route path="/admin" component={AdminPage} exact />
-        <Route path="/addProductForm">
-          <FormAddProduct setModal={setModal} />
-        </Route>
-        <Route path="/contact us" component={ContactUs} />
-      </Switch>
-      <ModalContainer modal={modal} setModal={setModal} />
-    </BrowserRouter>
-  );
+  }, [fetchCategory, fetchData]);
 
   return (
     <div className="App">
       {status === 0 && <p>Loading...</p>}
-      {status === 1 && Browser}
+      {status === 1 && <Browser />}
       {status === 2 && <p>Error</p>}
     </div>
   );

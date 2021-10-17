@@ -22,6 +22,7 @@ export default function FormAddProduct({ setModal }) {
     };
     createDoc("products", newProduct);
     setState({});
+    console.log(values);
     dispatchProducts({ type: "ADD_PRODUCT", payload: newProduct });
     alert("Product added");
     location.goBack();
@@ -32,60 +33,14 @@ export default function FormAddProduct({ setModal }) {
     setModal(<ModalAddCategory setModal={setModal} />);
   }
 
+  const inputFields = fields.map((input) => (
+    <InputField options={input} handleChange={handleChange} values={values} />
+  ));
+
   return (
     <form onSubmit={(event) => handleSubmit(event)}>
       <h2>Add New Product</h2>
-      <label>
-        <b>product name</b>
-        <input
-          value={values.name || ""}
-          type="text"
-          name="name"
-          placeholder="meat"
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        <b>product price</b>
-        <input
-          type="text"
-          name="price"
-          placeholder="230:-"
-          value={values.price || ""}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        <b>Description</b>
-        <textarea
-          type="text"
-          name="description"
-          placeholder="the....."
-          value={values.description || ""}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        <b>Image Url</b>
-        <input
-          type="text"
-          name="imgURL"
-          placeholder="www.ghfj.com"
-          value={values.imgURL || ""}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        <b>Ingredients</b>
-        <input
-          type="text"
-          name="ingredients"
-          placeholder="Meat, Oil, Salt"
-          value={values.ingredients || ""}
-          onChange={handleChange}
-        />
-      </label>
-
+      {inputFields}
       <Dropdown state={[isSelected, setIsSelected]} />
       <a onClick={openModel}>Add New Category</a>
       <section className="footer">

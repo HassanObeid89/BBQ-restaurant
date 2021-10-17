@@ -1,18 +1,19 @@
-export default function InputField({ options,handleChange,values }) {
-  const { label, instructions, placeholder, name, type } = options;
+import { useRef } from "react";
+export default function InputField({ options, handleChange, values }) {
+  const { label, instructions, placeholder, key, type } = options;
+  const inputReference = useRef(null);
   return (
-    <section>
+    <fieldset>
       <label>
         {instructions && <small>{instructions}</small>}
         <b>{label}</b>
         <input
           type={type}
-          name={name}
-          value={values.name || ''}
+          ref={inputReference}
           placeholder={placeholder}
-          onChange={handleChange}
+          onChange={() => handleChange(key, inputReference.current.value)}
         />
       </label>
-    </section>
+    </fieldset>
   );
 }
