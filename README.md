@@ -63,7 +63,7 @@ A low detail mockup to visualize how the app will look.
 
 The focus is on colors, fonts, branding and the positions of each element on the screen.
 
-[Figma link](https://docs.google.com/spreadsheets/d/1deuOaBYKyihOz2HA21FmPJk0Ny2FQF8U/edit?usp=sharing&ouid=115827464576694642970&rtpof=true&sd=true)
+[Figma link](https://www.figma.com/file/3y1jppQtnEovg3RIufNwZ1/BBQ-restaurant?node-id=20%3A158)
 
 ---
 
