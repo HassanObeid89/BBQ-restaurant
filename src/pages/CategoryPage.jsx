@@ -7,9 +7,11 @@ export default function CategoryPage() {
   const { categoryname } = useParams();
   const { categories } = useCategory();
   const { products } = useProduct();
+
   const filteredItems = products.filter(
     (product) => product.category === categoryname
   );
+
   const category = categories.filter(
     (category) => category.name === categoryname
   );
@@ -17,6 +19,7 @@ export default function CategoryPage() {
   const cards = filteredItems.map((item) => (
     <ProductCard key={item.id} item={item} />
   ));
+
   return (
     <div className="category-wrapper">
       <img src={category[0].imgURL} className="hero" alt="" />

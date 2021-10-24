@@ -13,7 +13,6 @@ export default function App() {
   const { dispatchProducts } = useProduct();
   const { dispatch } = useCategory();
   const path = "products";
-
   const path2 = "categories";
 
   // Methods

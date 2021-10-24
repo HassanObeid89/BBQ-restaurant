@@ -1,6 +1,8 @@
 import BookTable from "../components/BookTable";
 import profile from "../assets/images/profile.jpg";
 import map from "../assets/images/map.png";
+
+// This is a small component that do not change often, thus is ok to no break it down further.
 export default function ContactUs() {
   return (
     <div className="contact-wrapper">

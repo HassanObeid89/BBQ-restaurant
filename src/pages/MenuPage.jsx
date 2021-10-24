@@ -2,6 +2,8 @@ import { useState, useCallback, useEffect } from "react";
 import { useCategory } from "../state/CategoryProvider";
 import CategoryItem from "../components/CategoryItem";
 import { getCollection } from "../scripts/fireStore";
+
+// well done here!
 export default function MenuPage() {
   // Global state
   const { categories, dispatch } = useCategory();
@@ -30,6 +32,7 @@ export default function MenuPage() {
   const Categories = categories.map((item) => (
     <CategoryItem key={item.id} item={item} />
   ));
+
   return (
     <div className="card-wrapper">{status === 1 && <ul>{Categories}</ul>}</div>
   );

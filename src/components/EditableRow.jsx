@@ -3,6 +3,9 @@ export default function EditableRow({
   handleEditFormChange,
   updateProduct,
 }) {
+  // Function lenght (over 50)
+  // This could be refactor using a json and  then using the json to build the <td><textarea/></td> dynamically
+
   return (
     <tr>
       <td>

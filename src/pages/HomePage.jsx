@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import BBQhero from "../assets/images/BBQ-hero.jpg";
+
+// This page should have more content instead of being a single <Link>
 export default function HomePage() {
   return (
     <div className="home-wrapper">

@@ -19,8 +19,10 @@ export default function Dropdown({ state }) {
       {category.name}
     </div>
   ));
+
   return (
     <section className="dropdown">
+      {/* Divs should not have click events -1 */}
       <div className="dropdown-btn" onClick={() => setIsActive(!isActive)}>
         {isSelected}
         <img src={caretdownIcon} alt="" />

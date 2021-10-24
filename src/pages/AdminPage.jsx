@@ -28,6 +28,9 @@ export default function AdminPage() {
   function handleClick(event, id, item) {
     event.preventDefault();
     findProduct(products, id);
+
+    // here if you see that a new object is compose of exactly the same keys,
+    // then just create a hook that holds object itself.
     const formValues = {
       id: item.id,
       name: item.name,
@@ -37,9 +40,11 @@ export default function AdminPage() {
       description: item.description,
       ingredients: item.ingredients,
     };
+
     setEditProduct(formValues);
   }
 
+  // Naming
   async function updateProduct(editProduct) {
     await updateDocument("products", editProduct);
     dispatchProducts({ type: "UPDATE_PRODUCT", payload: products });
@@ -51,6 +56,8 @@ export default function AdminPage() {
     dispatchProducts({ type: "DELETE_PRODUCT", payload: products });
   }
 
+  // Function length: This should be a component in a different file. -1
+  // Nesting: Avoid having long and complex if/else -1
   const Rows = products.map((item, index) => (
     <>
       {editProductId === item.id ? (
