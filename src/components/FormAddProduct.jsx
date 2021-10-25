@@ -28,8 +28,6 @@ export default function FormAddProduct({ setModal }) {
     setState({});
     newProduct.id = id;
 
-    console.log("Monday mentor meeting handleSubmit()", id, newProduct);
-
     dispatchProducts({ type: "ADD_PRODUCT", payload: newProduct });
     alert("Product added");
     location.goBack();

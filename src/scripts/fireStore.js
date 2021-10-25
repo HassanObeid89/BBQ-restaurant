@@ -5,7 +5,6 @@ import { fireStoreInstance } from "../scripts/firebase";
 export async function createDoc(path, data) {
   const collectionReference = collection(fireStoreInstance, path);
   const documentReference = await addDoc(collectionReference, data);
-  console.log("Monday mentor meeting createDoc()", documentReference.id);
 
   return documentReference.id;
 }

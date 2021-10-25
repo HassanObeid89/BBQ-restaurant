@@ -13,6 +13,10 @@ export default function ProductPage() {
     .filter((product) => product.id === id)
     .map((item) => item);
 
+  console.log("lets see array", product[0].test_array);
+  
+  
+
   // Here if you always use the first product index [0] then in products you should have extracted that
   return (
     <div className="product-wrapper">

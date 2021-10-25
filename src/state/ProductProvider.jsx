@@ -1,5 +1,5 @@
 // NPM Packages
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 
 // Proeject files
 import productReducer from "./productReducer";
