@@ -29,6 +29,8 @@ export default function App() {
     [dispatch]
   );
 
+  // Naming, consistency
+  // why is this call fetchData instead of fetchProducts, like on fetchCategory above
   const fetchData = useCallback(
     async (path) => {
       try {
