@@ -6,6 +6,7 @@ import { useCategory } from "../state/CategoryProvider";
 export default function ModalAddCategory({ setModal }) {
   const { dispatch } = useCategory();
   const [values, handleChange, setState] = useForm();
+
   function handleSubmit(e) {
     e.preventDefault();
     createDoc("categories", values);
@@ -18,6 +19,7 @@ export default function ModalAddCategory({ setModal }) {
   const inputFields = categoryFields.map((input) => (
     <InputField options={input} handleChange={handleChange} values={values} />
   ));
+
   return (
     <form className="modalForm" onSubmit={(e) => handleSubmit(e)}>
       <h2>Add Category</h2>

@@ -15,6 +15,7 @@ import ModalContainer from "../components/ModalContainer";
 
 export default function Browser() {
   const [modal, setModal] = useState(null);
+  
   return (
     <BrowserRouter>
       <NavBar />

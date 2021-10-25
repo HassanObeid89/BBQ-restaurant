@@ -14,14 +14,22 @@ export default function FormAddProduct({ setModal }) {
   const [isSelected, setIsSelected] = useState("Please choose category");
   const [values, handleChange, setState] = useForm();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+
+    // here i have all the data BUT... the product id.
     const newProduct = {
       ...values,
       category: isSelected,
     };
-    createDoc("products", newProduct);
+
+    // once this is finish, we have the id.
+    const id = await createDoc("products", newProduct);
     setState({});
+    newProduct.id = id;
+
+    console.log("Monday mentor meeting handleSubmit()", id, newProduct);
+
     dispatchProducts({ type: "ADD_PRODUCT", payload: newProduct });
     alert("Product added");
     location.goBack();
